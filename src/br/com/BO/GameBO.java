@@ -1,17 +1,40 @@
 package br.com.BO;
 
+import java.util.ArrayList;
+
 import br.com.Bean.GameBean;
 import br.com.Bean.GameState;
 import br.com.DAO.GameDAO;
 
 public class GameBO {
 
-		public void insereUser(String nome, String plataforma, boolean online, int multiplayer, GameState state) {
-			
-			GameBean gameBean = new GameBean(nome, plataforma, online, multiplayer, state);
-			GameDAO gameDao = new GameDAO();
-			gameDao.inserirUser(gameBean);
-		}
+	GameDAO gameDao = new GameDAO();
+	ArrayList<GameBean> users = new ArrayList<GameBean>();
+	
+	public void insereJogo(String nome, String plataforma, boolean online, int multiplayer, GameState state) {
 		
-
+		GameBean gameBean = new GameBean(nome, plataforma, online, multiplayer, state);
+		
+		gameDao.inserirUser(gameBean);
+	}
+		
+	public void listarJogos() {
+		
+		users = gameDao.listarJogos();
+		System.out.println(users);
+		
+	}
+	
+	public void atualizarJogo(String nome, String plataforma, boolean online, int multiplayer, GameState state) {
+		
+		GameBean gameBean = new GameBean(nome, plataforma, online, multiplayer, state);
+		
+		gameDao.atualizarUser(gameBean);
+	}
+	
+	public void excluirJogo(int id) {
+		
+		gameDao.excluirPessoa(id);
+	}
+	
 }

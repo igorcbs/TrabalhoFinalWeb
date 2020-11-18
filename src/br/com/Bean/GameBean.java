@@ -72,8 +72,8 @@ public class GameBean {
 			throw new IllegalArgumentException();
 	}
 
-	public GameState getState() {
-		return state;
+	public String getState() {
+		return state.toString();
 	}
 
 	public void setState(GameState state) {

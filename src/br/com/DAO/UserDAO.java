@@ -24,17 +24,20 @@ public class UserDAO {
 	//Inserir
 	public void inserirUser(UserBean user) {
 		
-		String sql = "INSERT INTO Usuario (nome,email,senha) values(?,?.?)";
+		String sql = "INSERT INTO db.Usuario (idUsuario,nome,email,senha) values(?,?,?,?)";
 		
 		try {
 			
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, user.getNome());
-			ps.setString(2, user.getEmail());
-			ps.setString(3, user.getSenha());
+			ps.setInt(1, user.getId());
+			ps.setString(2, user.getNome());
+			ps.setString(3, user.getEmail());
+			ps.setString(4, user.getSenha());
+			
 			ps.execute();
 			ps.close();
 			
+			System.out.println("INSERIUUUUUUUUU PORRAAA");
 		} catch (Exception e) {
 			throw new RuntimeException("Não conseguiu inserir Usuario", e);
 		}
@@ -44,14 +47,14 @@ public class UserDAO {
 	
 	//Mudar os atributos do rs.get pois o banco não está criado
 	public ArrayList<UserBean> listarUser() {
-		String sql = "SELECT * FROM Usuario";
+		String sql = "SELECT * FROM db.Usuario";
 		
 		try {
 			st = conn.createStatement();
 			rs = st.executeQuery(sql);
 			
 			while(rs.next()) {
-				UserBean user = new UserBean(rs.getString("nome"),rs.getString("email"),rs.getString("senha"),rs.getString("id_Usuario"));
+				UserBean user = new UserBean(rs.getString("nome"),rs.getString("email"),rs.getString("senha"),rs.getInt("idUsuario"));
 				users.add(user);
 			}
  			
@@ -67,14 +70,12 @@ public class UserDAO {
 	///Atualizar
 	public void atualizarUser(UserBean user) {
 		
-		String sql = "UPDATE Usuario SET nome = ?, email = ? WHERE id_Usuario = ?";
+		String sql = "UPDATE db.Usuario SET nome = ?, email = ? WHERE idUsuario = " + user.getId();
 		
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, user.getId());
-			ps.setString(2, user.getNome());
-			ps.setString(3, user.getEmail());
-			ps.setString(4, user.getSenha());
+			ps.setString(1, user.getNome());
+			ps.setString(2, user.getEmail());
 			ps.execute();
 			ps.close();
 			
@@ -85,19 +86,21 @@ public class UserDAO {
 	}
 	
 	//Excluir
-	public void excluirPessoa(String idUser) {
+	public boolean excluirPessoa(int idUser) {
 		
-		String sql = "DELETE FROM Usuario WHERE id_Usuario = ?";
+		String sql = "DELETE FROM db.Usuario WHERE idUsuario = ?";
 		
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, idUser);
+			ps.setInt(1, idUser);
 			ps.execute();
 			ps.close();
 			
+			return true;
 		} catch (Exception e) {
 			throw new RuntimeException("Não conseguiu excluir o usuario", e);
 		}
+		
 		
 	}
 	

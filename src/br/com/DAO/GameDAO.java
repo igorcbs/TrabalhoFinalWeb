@@ -25,21 +25,21 @@ public class GameDAO {
 	//Inserir
 	public void inserirUser(GameBean game) {
 		
-		String sql = "INSERT INTO Usuario (nome,email,senha) values(?,?.?)";
+		String sql = "INSERT INTO db.Jogos (idJogos,nome,plataforma,multiplayer,online,estado) values(?,?,?,?,?,?)";
 		
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, game.getNome());
-			ps.setString(2, game.getPlataforma());
-			ps.setString(3, game.getOnline());
-			ps.setString(4, game.getMultiplayer());
-			ps.setString(5, game.getState);
-			ps.setString(6, game.getId);
+			ps.setInt(1, game.getId());
+			ps.setString(2, game.getNome());
+			ps.setString(3, game.getPlataforma());
+			ps.setInt(4, game.getMultiplayer());
+			ps.setInt(5, game.isOnline());
+			ps.setString(6, game.getState());
 			ps.execute();
 			ps.close();
-			
+			System.out.println("INSERIUUUUUUUUU PORRAAA");
 		} catch (Exception e) {
-			throw new RuntimeException("Não conseguiu inserir Usuario", e);
+			throw new RuntimeException("Não conseguiu inserir o jogo", e);
 		}
 		
 		
@@ -47,14 +47,20 @@ public class GameDAO {
 	
 	//Mudar os atributos do rs.get pois o banco não está criado
 	public ArrayList<GameBean> listarJogos() {
-		String sql = "SELECT * FROM Usuario";
+		String sql = "SELECT * FROM db.Jogos";
 		
 		try {
 			st = conn.createStatement();
 			rs = st.executeQuery(sql);
-			
+			boolean on = false;
 			while(rs.next()) {
-				GameBean user = new GameBean(rs.getString("nome"),rs.getString("plataforma"),rs.getString("online"),rs.getString("multiplayer"),rs.getNString("state"), rs.getNString("id_jogo");
+				if (rs.getInt("online") == 1) {
+					on = true;
+				}
+				
+				GameState estadoAtual = GameState.valueOf(rs.getString("estado"));
+				System.out.println(estadoAtual);
+				GameBean user = new GameBean(rs.getString("nome"),rs.getString("plataforma"),on,rs.getInt("multiplayer"),estadoAtual);
 				users.add(user);
 			}
  			
@@ -70,38 +76,37 @@ public class GameDAO {
 	///Atualizar
 	public void atualizarUser(GameBean game) {
 		
-		String sql = "UPDATE Usuario SET nome = ?, email = ? WHERE id_Usuario = ?";
+		String sql = "UPDATE db.Jogos SET nome = ?, plataforma = ?,  multiplayer = ?, online = ?, estado = ? WHERE idJogos = " + game.getId();
 		
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, game.getNome());
 			ps.setString(2, game.getPlataforma());
-			ps.setString(3, game.getOnline());
-			ps.setString(4, game.getMultiplayer());
-			ps.setString(5, game.getState);
-			ps.setString(6, game.getId);
+			ps.setInt(3, game.isOnline());
+			ps.setInt(4, game.getMultiplayer());
+			ps.setString(5, game.getState());
 			ps.execute();
 			ps.close();
 			
 		} catch (Exception e) {
-			throw new RuntimeException("Não conseguiu atualizar o usuario", e);
+			throw new RuntimeException("Não conseguiu atualizar o jogo", e);
 		}
 		
 	}
 	
 	//Excluir
-	public void excluirPessoa(String idUser) {
+	public void excluirPessoa(int idUser) {
 		
-		String sql = "DELETE FROM Usuario WHERE id_Usuario = ?";
+		String sql = "DELETE FROM db.Jogos WHERE idJogos = ?";
 		
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, idUser);
+			ps.setInt(1, idUser);
 			ps.execute();
 			ps.close();
-			
+			System.out.println("EXCLUIUUU PORRAAA");
 		} catch (Exception e) {
-			throw new RuntimeException("Não conseguiu excluir o usuario", e);
+			throw new RuntimeException("Não conseguiu excluir o jogo", e);
 		}
 		
 	}

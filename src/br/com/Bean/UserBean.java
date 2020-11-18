@@ -5,10 +5,10 @@ public class UserBean {
 	private String nome = "";
 	private String email = "";
 	private String senha = "";
-	private String id = "";
+	private int id = 0;
 	
 	
-	public UserBean(String nome,String email, String senha, String id) {
+	public UserBean(String nome,String email, String senha, int id) {
 		this.setNome(nome);
 		this.setEmail(email);
 		this.setSenha(senha);
@@ -46,12 +46,12 @@ public class UserBean {
 	}
 
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	

@@ -10,9 +10,9 @@ public class ConnectionFactory {
 		
 		//Copiar a url(apertar com o botao direito no banco quando iniciar o mysql e copiar a  url colocando no final o nome do banco) ,
 		//user e password da conexão com o mysql
-		String url = "";
-		String user = "";
-		String password = "";
+		String url = "jdbc:mysql://127.0.0.1:3306/?user=dbtrabalhoweb";
+		String user = "root";
+		String password = "81565534";
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
