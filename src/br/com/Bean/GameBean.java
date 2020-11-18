@@ -1,5 +1,7 @@
 package br.com.Bean;
 
+import java.awt.image.BufferedImage;
+
 public class GameBean {
 	
 	private String nome;
@@ -9,6 +11,7 @@ public class GameBean {
 	private GameState state;
 	private int id;
 	private static int nmbID = 0;
+	private BufferedImage image = new BufferedImage(null, null, online, null);
 	//Foto
 	
 	//Initializer
@@ -19,6 +22,7 @@ public class GameBean {
 		setOnline(online);
 		setPlataforma(plataforma);
 		setState(state);
+		setImage(new BufferedImage(50, 50, 50));
 		this.id = nmbID;
 		nmbID ++;
 	}
@@ -84,5 +88,12 @@ public class GameBean {
 		return id;
 	}
 	
+	public BufferedImage getImage() {
+		return image;
+	}
+	
+	public void setImage(BufferedImage image) {
+		this.image = image;
+	}
 
 }

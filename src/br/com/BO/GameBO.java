@@ -37,4 +37,9 @@ public class GameBO {
 		gameDao.excluirPessoa(id);
 	}
 	
+	public static void main(String[] args) {
+		GameBO gameBO = new GameBO();
+		gameBO.insereJogo("batata", "Banana", true, 3, GameState.desejado);
+	}
+	
 }
