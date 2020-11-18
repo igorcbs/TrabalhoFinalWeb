@@ -39,7 +39,8 @@ public class GameBO {
 	
 	public static void main(String[] args) {
 		GameBO gameBO = new GameBO();
-		gameBO.insereJogo("batata", "Banana", true, 3, GameState.desejado);
+//		gameBO.insereJogo("batata", "Banana", true, 3, GameState.desejado);
+		gameBO.listarJogos();
 	}
 	
 }

@@ -1,5 +1,6 @@
 package br.com.DAO;
 
+import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -66,6 +67,10 @@ public class GameDAO {
 				if (rs.getInt("online") == 1) {
 					on = true;
 				}
+				
+				java.sql.Blob blob = rs.getBlob("imagem");
+				InputStream in = blob.getBinaryStream();
+				BufferedImage image = ImageIO.read(in);
 				
 				GameState estadoAtual = GameState.valueOf(rs.getString("estado"));
 				System.out.println(estadoAtual);

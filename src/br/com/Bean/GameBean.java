@@ -1,5 +1,6 @@
 package br.com.Bean;
 
+import java.awt.color.ColorSpace;
 import java.awt.image.BufferedImage;
 
 public class GameBean {
@@ -11,7 +12,7 @@ public class GameBean {
 	private GameState state;
 	private int id;
 	private static int nmbID = 0;
-	private BufferedImage image = new BufferedImage(null, null, online, null);
+	private BufferedImage image;
 	//Foto
 	
 	//Initializer
@@ -22,7 +23,7 @@ public class GameBean {
 		setOnline(online);
 		setPlataforma(plataforma);
 		setState(state);
-		setImage(new BufferedImage(50, 50, 50));
+		setImage(new BufferedImage(80, 40, ColorSpace.TYPE_RGB));
 		this.id = nmbID;
 		nmbID ++;
 	}
