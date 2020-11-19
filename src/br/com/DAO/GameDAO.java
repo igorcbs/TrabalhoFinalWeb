@@ -1,10 +1,16 @@
 package br.com.DAO;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
 
 import br.com.Bean.GameBean;
 import br.com.Bean.GameState;
@@ -25,9 +31,12 @@ public class GameDAO {
 	//Inserir
 	public void inserirUser(GameBean game) {
 		
-		String sql = "INSERT INTO db.Jogos (idJogos,nome,plataforma,multiplayer,online,estado) values(?,?,?,?,?,?)";
+		String sql = "INSERT INTO db.Jogos (idJogos,nome,plataforma,multiplayer,online,estado,imagem) values(?,?,?,?,?,?,?)";
 		
 		try {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ImageIO.write(game.getImage(), "png", baos);
+			InputStream is = new ByteArrayInputStream(baos.toByteArray());
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, game.getId());
 			ps.setString(2, game.getNome());
@@ -35,6 +44,7 @@ public class GameDAO {
 			ps.setInt(4, game.getMultiplayer());
 			ps.setInt(5, game.isOnline());
 			ps.setString(6, game.getState());
+			ps.setBlob(7, is);
 			ps.execute();
 			ps.close();
 			System.out.println("INSERIUUUUUUUUU PORRAAA");
@@ -58,6 +68,10 @@ public class GameDAO {
 					on = true;
 				}
 				
+				java.sql.Blob blob = rs.getBlob("imagem");
+				InputStream in = blob.getBinaryStream();
+				BufferedImage image = ImageIO.read(in);
+				
 				GameState estadoAtual = GameState.valueOf(rs.getString("estado"));
 				System.out.println(estadoAtual);
 				GameBean user = new GameBean(rs.getString("nome"),rs.getString("plataforma"),on,rs.getInt("multiplayer"),estadoAtual);
@@ -76,7 +90,7 @@ public class GameDAO {
 	///Atualizar
 	public void atualizarUser(GameBean game) {
 		
-		String sql = "UPDATE db.Jogos SET nome = ?, plataforma = ?,  multiplayer = ?, online = ?, estado = ? WHERE idJogos = " + game.getId();
+		String sql = "UPDATE db.Jogos SET nome = ?, plataforma = ?,  multiplayer = ?, online = ?, estado = ?, imagem = ? WHERE idJogos = " + game.getId();
 		
 		try {
 			ps = conn.prepareStatement(sql);
