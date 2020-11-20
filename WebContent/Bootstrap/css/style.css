@@ -654,6 +654,9 @@ ol {
 .review-section {
 	background-position: right top;
 }
+.review-item {
+	cursor: pointer;
+}
 
 .review-item .review-cover {
 	position: relative;

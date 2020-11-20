@@ -4,7 +4,7 @@
 <html lang="zxx">
 <head>
 <meta charset="UTF-8">
-<title>Game Warrior Template</title>
+<title>Game Collection</title>
 <meta charset="UTF-8">
 	<meta name="description" content="Game Warrior Template">
 	<meta name="keywords" content="warrior, game, creative, html">
@@ -47,7 +47,7 @@
 			<nav class="main-menu">
 				<ul>
 					<li><a href="index.html">Home</a></li>
-					<li><a href="review.html">Games</a></li>
+					<li><a href="review.jsp">Games</a></li>
 					<li><a href="contact.html">Contact</a></li>
 				</ul>
 			</nav>
@@ -103,7 +103,7 @@
 		<div class="container">
 			<ul class="footer-menu">
 				<li><a href="index.html">Home</a></li>
-				<li><a href="review.html">Games</a></li>
+				<li><a href="review.jsp">Games</a></li>
 				<li><a href="contact.html">Contact</a></li>
 			</ul>
 			<p class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
