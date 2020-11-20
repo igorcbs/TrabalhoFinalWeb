@@ -60,13 +60,13 @@
 				<div class="col-lg-8">
 					<div class="contact-form-warp">
 						<h4 class="comment-title">Faça seu Login</h4>
-						<form class="comment-form" action="" method="get">
+						<form class="comment-form" action="" method="post">
 							<div class="row">
 								<div class="col-md-6">
-									<input type="text" placeholder="Email" id="email">
+									<input type="email" placeholder="Email" id="email">
 								</div>
 								<div class="col-md-6">
-									<input type="email" placeholder="Senha" id="senha">
+									<input type="text" placeholder="Senha" id="senha">
 								</div>
 								<div class="col-lg-12">
 									<button class="site-btn btn-sm">Entrar</button>
@@ -85,7 +85,7 @@
 									<input type="email" placeholder="Email" id="email">
 								</div>
 								<div class="col-md-6">
-									<input type="email" placeholder="Senha" id="senha">
+									<input type="text" placeholder="Senha" id="senha">
 								</div>
 								<div class="col-lg-12">
 									<button class="site-btn btn-sm">Registrar-se</button>
