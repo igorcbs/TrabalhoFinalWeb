@@ -6,13 +6,17 @@ public class UserBean {
 	private String email = "";
 	private String senha = "";
 	private int id = 0;
-	
+	private static int nmbID = 0;
 	
 	public UserBean(String nome,String email, String senha, int id) {
 		this.setNome(nome);
 		this.setEmail(email);
 		this.setSenha(senha);
-		this.setId(id);
+		if(getId() == 0) {
+			this.setId(id);
+		}else {
+			this.setId(nmbID + 1);
+		}
 	}
 
 
