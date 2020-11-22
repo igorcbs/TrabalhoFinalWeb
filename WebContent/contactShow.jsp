@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 <head>
 	<title>Game Collection</title>
 	<meta charset="UTF-8">
@@ -18,8 +18,6 @@
 	<link rel="stylesheet" href="Bootstrap/css/owl.carousel.css"/>
 	<link rel="stylesheet" href="Bootstrap/css/style.css"/>
 	<link rel="stylesheet" href="Bootstrap/css/animate.css"/>
-	
-	<script type="text/javascript" src="Bootstrap/js/loadPage.js"></script>
 
 
 	<!--[if lt IE 9]>
@@ -59,15 +57,14 @@
 	</header>
 	<!-- Header section end -->
 
-
 	<!-- Page info section -->
-	<section class="page-info-section set-bg" data-setbg="Bootstrap/img/page-top-bg/3.jpg">
+	<section class="page-info-section set-bg" data-setbg="Bootstrap/img/page-top-bg/5.jpg">
 		<div class="pi-content">
 			<div class="container">
 				<div class="row">
 					<div class="col-xl-5 col-lg-6 text-white">
-						<h2>Game Collection</h2>
-						<p>Manage your games here, tell which one you want to play, or even that one you lend to someone</p>
+						<h2>Insert a game</h2>
+						<p>In that field you will be capable of add games into your list,change his state and other informations.</p>
 					</div>
 				</div>
 			</div>
@@ -77,77 +74,51 @@
 
 
 	<!-- Page section -->
-	<section class="page-section review-page spad">
-		<script>
-			window.onload = function(){
-				//Pick the values
-				var daString = "<div class=" + "col-md-6" + "><div class=" + "review-item" + "onclick=" + "openPage('contactShow.jsp')" + "><div class=" + "review-cover set-bg" + "data-setbg=" + "Bootstrap/img/review/5.jpg" + "></div><div class=" + "review-text" + "><h4>Overwatch</h4><p>Multiplayer de 4 jogadores</p></div></div></div>";
-				//document.getElementById('divPrincipal').innerHTML += daString;
-			}
-		</script>
+	<section class="page-section spad contact-page">
 		<div class="container">
-			<div class="row" id="divPrincipal">
-				<div class="col-md-6">
-					<div class="review-item" onclick="openPage('contactShow.jsp')">
-						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/5.jpg"></div>
-						<div class="review-text">
-							<h4>Overwatch</h4>
-							<p>Multiplayer de 4 jogadores</p>
-						</div>
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="contact-form-warp">
+						<h4 class="comment-title">Register your game</h4>
+						<form class="comment-form" action="" method="post">
+							<div class="row">
+								<div class="col-md-6">
+									<input type="text" placeholder="Name" id="nome">
+								</div>
+								<div class="col-md-6">
+									<input type="text" placeholder="Platform" id="plataforma">
+								</div>
+								<div class="col-md-6">
+									Number of players: <input type="number" min="1" max="8" placeholder="1" id="multiplayer"> <BR>
+								</div>
+								<div class="col-md-6">
+									<input type="checkbox" id="online" name="Online" value="Online"> Online <BR>
+								</div>
+								
+								<div class="col-md-6">
+									<BR> What is the state of the game? <BR>
+									<input type="radio" id="estado" name="emprestado" value="estado" /> Lent <BR>
+									<input type="radio" id="estado" name="nafila" value="estado" /> In queue <BR>
+									<input type="radio" id="estado" name="desejado" value="estado" /> Wanted <BR>
+									<input type="radio" id="estado" name="jogando" value="estado" /> Playing <BR>
+									<input type="radio" id="estado" name="zerado" value="estado" /> Zeroed <BR>
+								</div>
+								<div class="col-lg-12">
+									<BR> Select the game image: 
+									<input type="file" name="myimg" id="imagem"><BR>
+									<!-- <input type="text" placeholder="Subject"> 
+									<textarea placeholder="Message"></textarea>  -->
+									<BR> <button class="site-btn btn-sm">Edit</button>    <button class="site-btn btn-sm">Remove</button>
+								</div>
+							</div>
+						</form>
 					</div>
 				</div>
-				<div class="col-md-6">
-					<div class="review-item" onclick="openPage('contactShow.jsp')">
-						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/6.jpg"></div>
-						<div class="review-text">
-							<h4>Grand Theft Auto</h4>
-							<p>Multiplayer de 4 jogadores</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="review-item" onclick="openPage('contactShow.jsp')">
-						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/7.jpg"></div>
-						<div class="review-text">
-							<h4>Avatar</h4>
-							<p>Multiplayer de 4 jogadores</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="review-item" onclick="openPage('contactShow.jsp')">
-						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/8.jpg"></div>
-						<div class="review-text">
-							<h4>Anthem</h4>
-							<p>Multiplayer de 4 jogadores</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="review-item" onclick="openPage('contactShow.jsp')">
-						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/9.jpg"></div>
-						<div class="review-text">
-							<h4>Cyberpunk 2077</h4>
-							<p>Multiplayer de 4 jogadores</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="review-item" onclick="openPage('contactShow.jsp')">
-						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/10.jpg"></div>
-						<div class="review-text">
-							<h4>Spiderman</h4>
-							<p>Multiplayer de 4 jogadores</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="user-panel">
-				<a href="contact.html">+</a>
 			</div>
 		</div>
 	</section>
 	<!-- Page section end -->
+
 	
 	<!-- Footer section -->
 	<footer class="footer-section">
@@ -171,5 +142,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="Bootstrap/js/owl.carousel.min.js"></script>
 	<script src="Bootstrap/js/jquery.marquee.min.js"></script>
 	<script src="Bootstrap/js/main.js"></script>
+
+
+	<!-- load for map -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWTIlluowDL-X4HbYQt3aDw_oi2JP0Krc&sensor=false"></script>
+	<script src="Bootstrap/js/map.js"></script>
+
     </body>
 </html>
