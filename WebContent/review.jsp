@@ -82,13 +82,13 @@
 			window.onload = function(){
 				//Pick the values
 				var daString = "<div class=" + "col-md-6" + "><div class=" + "review-item" + "onclick=" + "openPage('contactShow.jsp')" + "><div class=" + "review-cover set-bg" + "data-setbg=" + "Bootstrap/img/review/5.jpg" + "></div><div class=" + "review-text" + "><h4>Overwatch</h4><p>Multiplayer de 4 jogadores</p></div></div></div>";
-				//document.getElementById('divPrincipal').innerHTML += daString;
+				document.getElementById('divPrincipal').innerHTML += daString;
 			}
 		</script>
 		<div class="container">
 			<div class="row" id="divPrincipal">
 				<div class="col-md-6">
-					<div class="review-item" onclick="openPage('contactShow.jsp')">
+					<div class="review-item" onclick="window.location.href='ControllerReview';">
 						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/5.jpg"></div>
 						<div class="review-text">
 							<h4>Overwatch</h4>
@@ -97,7 +97,7 @@
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="review-item" onclick="openPage('contactShow.jsp')">
+					<div class="review-item" onclick="window.location.href='ControllerReview';">
 						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/6.jpg"></div>
 						<div class="review-text">
 							<h4>Grand Theft Auto</h4>
@@ -106,7 +106,7 @@
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="review-item" onclick="openPage('contactShow.jsp')">
+					<div class="review-item" onclick="window.location.href='ControllerReview';">
 						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/7.jpg"></div>
 						<div class="review-text">
 							<h4>Avatar</h4>
@@ -115,7 +115,7 @@
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="review-item" onclick="openPage('contactShow.jsp')">
+					<div class="review-item" onclick="window.location.href='ControllerReview';">
 						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/8.jpg"></div>
 						<div class="review-text">
 							<h4>Anthem</h4>
@@ -124,7 +124,7 @@
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="review-item" onclick="openPage('contactShow.jsp')">
+					<div class="review-item" onclick="window.location.href='ControllerReview';">
 						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/9.jpg"></div>
 						<div class="review-text">
 							<h4>Cyberpunk 2077</h4>
@@ -133,7 +133,7 @@
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="review-item" onclick="openPage('contactShow.jsp')">
+					<div class="review-item" onclick="window.location.href='ControllerReview';">
 						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/10.jpg"></div>
 						<div class="review-text">
 							<h4>Spiderman</h4>

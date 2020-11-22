@@ -13,7 +13,7 @@ public class GameBO {
 	
 	public void insereJogo(String nome, String plataforma, boolean online, int multiplayer, GameState state) {
 		
-		GameBean gameBean = new GameBean(nome, plataforma, online, multiplayer, state);
+		GameBean gameBean = new GameBean(nome,plataforma,online,multiplayer,state);
 		
 		gameDao.inserirUser(gameBean);
 	}
