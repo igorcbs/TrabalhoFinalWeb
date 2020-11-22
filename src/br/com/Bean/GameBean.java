@@ -27,12 +27,10 @@ public class GameBean {
 		setImage(new BufferedImage(80, 40, ColorSpace.TYPE_RGB));
 		this.id = nmbID;
 		nmbID ++;
-		setIdUser(idUser);
+		this.setIdUser(idUser);
 	}
 	
 	//Methods
-	
-	
 	
 	//Getters and Setters
 	public String getNome() {
@@ -107,5 +105,4 @@ public class GameBean {
 		this.idUser = idUser;
 	}
 
-	
 }
