@@ -18,11 +18,12 @@ public class UserBO {
 	}
 	
 	
-	public void listarUser() {
+	public ArrayList<UserBean> listarUser() {
 		
-		users = userDao.listarUser();
-		System.out.println(users.toString());
-		
+		return users = userDao.listarUser();
+
+//		System.out.println(users.toString());
+
 	}
 	
 	public void atualizarUser(String nome, String email, String senha, int id) {
