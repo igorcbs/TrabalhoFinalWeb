@@ -13,10 +13,11 @@ public class GameBean {
 	private int id;
 	private static int nmbID = 0;
 	private BufferedImage image;
+	private int idUser = 0;
 	//Foto
 	
 	//Initializer
-	public GameBean(String nome, String plataforma, boolean online, int multiplayer, GameState state) {
+	public GameBean(String nome, String plataforma, boolean online, int multiplayer, GameState state, int idUser) {
 		
 		setMultiplayer(multiplayer);
 		setNome(nome);
@@ -26,11 +27,10 @@ public class GameBean {
 		setImage(new BufferedImage(80, 40, ColorSpace.TYPE_RGB));
 		this.id = nmbID;
 		nmbID ++;
+		this.setIdUser(idUser);
 	}
 	
 	//Methods
-	
-	
 	
 	//Getters and Setters
 	public String getNome() {
@@ -95,6 +95,14 @@ public class GameBean {
 	
 	public void setImage(BufferedImage image) {
 		this.image = image;
+	}
+
+	public int getIdUser() {
+		return idUser;
+	}
+
+	public void setIdUser(int idUser) {
+		this.idUser = idUser;
 	}
 
 }

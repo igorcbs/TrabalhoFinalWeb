@@ -31,7 +31,7 @@ public class GameDAO {
 	//Inserir
 	public void inserirUser(GameBean game) {
 		
-		String sql = "INSERT INTO db.Jogos (idJogos,nome,plataforma,multiplayer,online,estado,imagem) values(?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO db.Jogos (idJogos,nome,plataforma,multiplayer,online,estado,imagem,idUser) values(?,?,?,?,?,?,?,?)";
 		
 		try {
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -45,6 +45,7 @@ public class GameDAO {
 			ps.setInt(5, game.isOnline());
 			ps.setString(6, game.getState());
 			ps.setBlob(7, is);
+			ps.setInt(8, game.getIdUser());
 			ps.execute();
 			ps.close();
 			System.out.println("INSERIUUUUUUUUU PORRAAA");
@@ -74,7 +75,7 @@ public class GameDAO {
 				
 				GameState estadoAtual = GameState.valueOf(rs.getString("estado"));
 				System.out.println(estadoAtual);
-				GameBean user = new GameBean(rs.getString("nome"),rs.getString("plataforma"),on,rs.getInt("multiplayer"),estadoAtual);
+				GameBean user = new GameBean(rs.getString("nome"),rs.getString("plataforma"),on,rs.getInt("multiplayer"),estadoAtual,rs.getInt("idUser"));
 				users.add(user);
 			}
  			

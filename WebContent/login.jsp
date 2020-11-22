@@ -60,13 +60,13 @@
 				<div class="col-lg-8">
 					<div class="contact-form-warp">
 						<h4 class="comment-title">Faça seu Login</h4>
-						<form class="comment-form" action="ControllerLogin" method="get">
+						<form class="comment-form" action="ControllerLogin" method="post">
 							<div class="row">
 								<div class="col-md-6">
-									<input type="email" placeholder="Email" id="email">
+									<input type="email" placeholder="Email" id="email" name="email">
 								</div>
 								<div class="col-md-6">
-									<input type="password" placeholder="Senha" id="senha">
+									<input type="password" placeholder="Senha" id="senha" name="senha">
 								</div>
 								<div class="col-lg-12">
 									<button class="site-btn btn-sm">Entrar</button>
@@ -77,7 +77,7 @@
 							<p>
 						</form>
 						
-						<form class="comment-form" action="ControllerLogin" method="post">
+						<form class="comment-form" action="ControllerRegister" method="post">
 							<h4 class="comment-title">Realize seu Cadastro</h4>
 							<div class="row">
 								<div class="col-md-6">
