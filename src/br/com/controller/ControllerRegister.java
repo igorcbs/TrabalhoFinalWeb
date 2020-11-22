@@ -9,13 +9,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import br.com.BO.UserBO;
 import br.com.Bean.UserBean;
 
-@WebServlet("/ControllerLogin")
-public class ControllerLogin extends HttpServlet {
+@WebServlet("/ControllerRegister")
+public class ControllerRegister extends HttpServlet {
+
 	private static final long serialVersionUID = 1L;
 
 
@@ -30,45 +30,44 @@ public class ControllerLogin extends HttpServlet {
 		// TODO Auto-generated method stub
 		UserBO user = new UserBO();
 		ArrayList<UserBean> users;
-		boolean logou = false;
+		boolean entrou = true;
 		String email =  req.getParameter("email");
 		String password = req.getParameter("senha");
+		String nome = req.getParameter("nome");
+
+		PrintWriter out = resp.getWriter();
 		
-	
 		users = user.listarUser();
 		
-		HttpSession session = req.getSession(true);
-		
 		if(users.isEmpty()) {
-			System.out.println("Não há registro! Cadastre-se");
+			user.insereUser(nome, email, password);
+			
 			req.getRequestDispatcher("/index.html").forward(req, resp);
 		}else {
 			System.out.println("Não é nulo");
 			for(UserBean people: users) {
+				System.out.println(people.getEmail());
+				System.out.println(people.getSenha());
 				if((email.contains(people.getEmail())) && (password.contains(people.getSenha()))) {
 					System.out.println("Usuário já registrado");
-					logou = true;
-					session.setAttribute("email", email);
-					session.setAttribute("senha", password);
-					session.setAttribute("nome", people.getNome());
-					session.setAttribute("id", people.getId());
-//					resp.sendRedirect("/index.html"); 
+					entrou = false;
 				} 
 			}
-
-			if(logou) {
-				System.out.println("logou");
+			
+			if(entrou) {
+				System.out.println("Usuário não registrado");
+				user.insereUser(nome, email, password);
 				req.getRequestDispatcher("/index.html").forward(req, resp);
-				
 			}else {
-				System.out.println("Não logou");
-				req.getRequestDispatcher("/login.jsp").forward(req, resp);
+				resp.setContentType("/login.jsp");
+				out.print("Usuário já cadastrado! Realize o login ali em cima!");
+				out.close();
 			}
 			
 		}
 		
+		
+		
 	}
-	
-	
 	
 }
