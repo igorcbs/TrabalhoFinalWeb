@@ -78,64 +78,66 @@
 
 	<!-- Page section -->
 	<section class="page-section review-page spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-					<div class="review-item" onclick="openPage('contact.html')">
-						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/5.jpg"></div>
-						<div class="review-text">
-							<h4>Overwatch Halloween</h4>
-							<p>Multiplayer de 4 jogadores</p>
+		<form class="comment-form" action="ControllerReview" method="get">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="review-item" onclick="openPage('contact.html')">
+							<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/5.jpg"></div>
+							<div class="review-text">
+								<h4>Overwatch Halloween</h4>
+								<p>Multiplayer de 4 jogadores</p>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="review-item" onclick="openPage('contact.html')">
-						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/6.jpg"></div>
-						<div class="review-text">
-							<h4>Grand Theft Auto</h4>
-							<p>Multiplayer de 4 jogadores</p>
+					<div class="col-md-6">
+						<div class="review-item" onclick="openPage('contact.html')">
+							<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/6.jpg"></div>
+							<div class="review-text">
+								<h4>Grand Theft Auto</h4>
+								<p>Multiplayer de 4 jogadores</p>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="review-item" onclick="openPage('contact.html')">
-						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/7.jpg"></div>
-						<div class="review-text">
-							<h4>Avatar</h4>
-							<p>Multiplayer de 4 jogadores</p>
+					<div class="col-md-6">
+						<div class="review-item" onclick="openPage('contact.html')">
+							<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/7.jpg"></div>
+							<div class="review-text">
+								<h4>Avatar</h4>
+								<p>Multiplayer de 4 jogadores</p>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="review-item" onclick="openPage('contact.html')">
-						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/8.jpg"></div>
-						<div class="review-text">
-							<h4>Anthem</h4>
-							<p>Multiplayer de 4 jogadores</p>
+					<div class="col-md-6">
+						<div class="review-item" onclick="openPage('contact.html')">
+							<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/8.jpg"></div>
+							<div class="review-text">
+								<h4>Anthem</h4>
+								<p>Multiplayer de 4 jogadores</p>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="review-item" onclick="openPage('contact.html')">
-						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/9.jpg"></div>
-						<div class="review-text">
-							<h4>Cyberpunk 2077</h4>
-							<p>Multiplayer de 4 jogadores</p>
+					<div class="col-md-6">
+						<div class="review-item" onclick="openPage('contact.html')">
+							<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/9.jpg"></div>
+							<div class="review-text">
+								<h4>Cyberpunk 2077</h4>
+								<p>Multiplayer de 4 jogadores</p>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="review-item" onclick="openPage('contact.html')">
-						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/10.jpg"></div>
-						<div class="review-text">
-							<h4>Spiderman</h4>
-							<p>Multiplayer de 4 jogadores</p>
+					<div class="col-md-6">
+						<div class="review-item" onclick="openPage('contact.html')">
+							<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/10.jpg"></div>
+							<div class="review-text">
+								<h4>Spiderman</h4>
+								<p>Multiplayer de 4 jogadores</p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</form>
 	</section>
 	<!-- Page section end -->
 	
