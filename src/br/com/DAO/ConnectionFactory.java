@@ -12,7 +12,8 @@ public class ConnectionFactory {
 		//user e password da conexão com o mysql
 		String url = "jdbc:mysql://127.0.0.1:3306/?user=dbtrabalhoweb";
 		String user = "root";
-		String password = "81565534";
+		//String password = "81565534";
+		String password = "Victor@001";
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
