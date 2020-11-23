@@ -36,14 +36,14 @@
 	<header class="header-section">
 		<div class="container">
 			<!-- logo -->
-			 <a class="site-logo" href="index.jsp">
+			<a class="site-logo" href="index.jsp">
 				<img src="Bootstrap/img/logo.png" alt="">
 			</a>
-			<%-- <div class="user-panel">
-				<form action="ControllerIndex" method="get">
-					<a > <%= request.getAttribute("userNome")%> </a>  /  <a href="index.htm">Exit</a>
+			<div class="user-panel">
+				<form action="ControllerIndex" method="get" >
+					<a > <%= request.getAttribute("userNome") %> </a>  /  <a href="index.htm">Exit</a>
 				</form>
-			</div> --%>
+			</div>
 			<!-- responsive -->
 			<div class="nav-switch">
 				<i class="fa fa-bars"></i>
@@ -65,7 +65,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xl-5 col-lg-6 text-white">
-						<h2>Edit a game</h2>
+						<h2>Insert a game</h2>
 						<p>In that field you will be capable of add games into your list,change his state and other informations.</p>
 					</div>
 				</div>
@@ -81,38 +81,37 @@
 			<div class="row">
 				<div class="col-lg-8">
 					<div class="contact-form-warp">
-						<h4 class="comment-title">Edit your game</h4>
-						<form class="comment-form" action="ControllerEditGame" method="post">
+						<h4 class="comment-title">Register your game</h4>
+						<form class="comment-form" action="ControllerSave" method="post">
 							<div class="row">
 								<div class="col-md-6">
-									<input type="text" placeholder="Name" id="nome" name="nome" value="<%= request.getParameter("nomeGame")%>">
+									<input type="text" placeholder="Name" id="nome" name="nome">
 								</div>
 								<div class="col-md-6">
-									<input type="text" placeholder="Platform" id="plataforma" name="plataforma" value="<%= request.getParameter("plataformaGame")%>">
+									<input type="text" placeholder="Platform" id="plataforma" name="plataforma">
 								</div>
 								<div class="col-md-6">
-									Number of players: <input type="number" min="1" max="8" placeholder="1" id="multiplayer" name="num" value="<%= request.getParameter("numPlayers")%>"> <BR>
+									Number of players: <input type="number" min="1" max="8" placeholder="1" id="multiplayer" name="num"> <BR>
 								</div>
 								<div class="col-md-6">
-									<input type="checkbox" id="online" name="online" value="online" value="<%= request.getParameter("nomeGame")%>"> Online <BR>
+									<input type="checkbox" id="online" name="online" value="online"> Online <BR>
 								</div>
 								
 								<div class="col-md-6">
 									<BR> What is the state of the game? <BR>
-									<input type="radio" id="estado" name="emprestado" value="estado" /> Lent <BR>
-									<input type="radio" id="estado" name="nafila" value="estado" /> In queue <BR>
-									<input type="radio" id="estado" name="desejado" value="estado" /> Wanted <BR>
-									<input type="radio" id="estado" name="jogando" value="estado" /> Playing <BR>
-									<input type="radio" id="estado" name="zerado" value="estado" /> Zeroed <BR>
+									<input type="radio" id="estado" name="estado" value="emprestado" /> Lent <BR>
+									<input type="radio" id="estado" name="estado" value="nafila" /> In queue <BR>
+									<input type="radio" id="estado" name="estado" value="desejado" /> Wanted <BR>
+									<input type="radio" id="estado" name="estado" value="jogando" /> Playing <BR>
+									<input type="radio" id="estado" name="estado" value="zerado" /> Zeroed <BR>
 								</div>
 								<div class="col-lg-12">
+									<BR> Select the game image: 
+									<input type="file" name="myimg" id="imagem"><BR>
 									<!-- <input type="text" placeholder="Subject"> 
 									<textarea placeholder="Message"></textarea>  -->
-									<BR> <button class="site-btn btn-sm" name="edit">Edit</button>    
-									<button class="site-btn btn-sm" name="delete">Remove</button>
+									<BR> <button class="site-btn btn-sm">Save</button>
 								</div>
-							
-								
 							</div>
 						</form>
 					</div>

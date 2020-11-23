@@ -11,9 +11,9 @@ public class GameBO {
 	GameDAO gameDao = new GameDAO();
 	ArrayList<GameBean> users = new ArrayList<GameBean>();
 	
-	public void insereJogo(String nome, String plataforma, boolean online, int multiplayer, GameState state) {
+	public void insereJogo(String nome, String plataforma, boolean online, int multiplayer, GameState state,int id) {
 		
-		GameBean gameBean = new GameBean(nome,plataforma,online,multiplayer,state);
+		GameBean gameBean = new GameBean(nome,plataforma,online,multiplayer,state,id);
 		
 		gameDao.inserirUser(gameBean);
 	}
@@ -25,9 +25,9 @@ public class GameBO {
 		
 	}
 	
-	public void atualizarJogo(String nome, String plataforma, boolean online, int multiplayer, GameState state) {
+	public void atualizarJogo(String nome, String plataforma, boolean online, int multiplayer, GameState state, int id) {
 		
-		GameBean gameBean = new GameBean(nome, plataforma, online, multiplayer, state);
+		GameBean gameBean = new GameBean(nome, plataforma, online, multiplayer, state, id);
 		
 		gameDao.atualizarUser(gameBean);
 	}

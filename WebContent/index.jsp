@@ -1,11 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-<meta charset="UTF-8">
-<title>Game Collection</title>
-<meta charset="UTF-8">
+	<title>Game Collection</title>
+	<meta charset="UTF-8">
 	<meta name="description" content="Game Warrior Template">
 	<meta name="keywords" content="warrior, game, creative, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,88 +20,84 @@
 	<link rel="stylesheet" href="Bootstrap/css/animate.css"/>
 
 
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
 </head>
 <body>
-
-<div id="preloder">
+	<!-- Page Preloder -->
+	<div id="preloder">
 		<div class="loader"></div>
 	</div>
+
 	<!-- Header section -->
 	<header class="header-section">
 		<div class="container">
 			<!-- logo -->
-			 <a class="site-logo" href="index.htm">
-			 <img src="Bootstrap/img/logo.png" alt="">
-			</a> 
+			<a class="site-logo" href="index.jsp">
+				<img src="Bootstrap/img/logo.png" alt="">
+			</a>
+			<div class="user-panel">
+				<form action="ControllerIndex" method="get">
+					<a > <%= request.getAttribute("userNome")%> </a>  /  <a href="index.htm">Exit</a>
+				</form>
+				
+			</div>
 			<!-- responsive -->
 			<div class="nav-switch">
 				<i class="fa fa-bars"></i>
 			</div>
 			<!-- site menu -->
-			<!-- <nav class="main-menu">
-				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="review.jsp">Games</a></li>
-				</ul>
-			</nav> -->
+			<nav class="main-menu">
+				<!-- <form action="ControllerIndex" method="post"> -->
+					<ul>
+						<li><a href="index.jsp">Home</a>
+						
+						</li>
+					</ul>
+						
+				<!-- </form> -->
+				<form action="ControllerIndex" method="post">
+					<a href="window.location.href='ControllerIndex';" >Games</a>
+				</form>
+
+			</nav>
 		</div>
 	</header>
-	
-	<section class="page-section spad contact-page">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8">
-					<div class="contact-form-warp">
-						<h4 class="comment-title">Faça seu Login</h4>
-						<form class="comment-form" action="ControllerLogin" method="post">
-							<div class="row">
-								<div class="col-md-6">
-									<input type="email" placeholder="Email" id="email" name="email">
-								</div>
-								<div class="col-md-6">
-									<input type="password" placeholder="Senha" id="senha" name="senha">
-								</div>
-								<div class="col-lg-12">
-									<button class="site-btn btn-sm">Entrar</button>
-								</div>
-							</div>
-							<hr>
-							<h5 class="comment-title">Ou</h5>
-							<p>
-						</form>
-						
-						<form class="comment-form" action="ControllerRegister" method="post">
-							<h4 class="comment-title">Realize seu Cadastro</h4>
-							<div class="row">
-								<div class="col-md-6">
-									<input type="text" placeholder="Nome" id="nome" name="nome">
-								</div> 
-								<div class="col-md-6">
-									<input type="email" placeholder="Email" id="email" name="email">
-								</div>
-								<div class="col-md-6">
-									<input type="password" placeholder="Senha" id="senha" name="senha">
-								</div>
-								<div class="col-lg-12">
-									<input class="site-btn btn-sm" type="submit" value="Registre-se"/>
-								</div>
-							</div>	
-						
-						</form>
-						
+	<!-- Header section end -->
+
+
+	<!-- Hero section -->
+	<section class="hero-section">
+		<div class="hero-slider owl-carousel">
+			<div class="hs-item set-bg" data-setbg="Bootstrap/img/slider-1.jpg">
+				<div class="hs-text">
+					<div class="container">
+						<h2>The Best <span>Games</span> Collection</h2>
+						<p>Best collection of games which you can store. <br> take the control of all yours games and list <br>Don't lose a game any more</p>
 					</div>
+				</div>
+			</div>
+			<div class="hs-item set-bg" data-setbg="Bootstrap/img/slider-2.jpg">
+				<div class="hs-text">
+					<div class="container">
+						<h2>Start Your <span>Collection</span> Right Now!</h2>
+						<p>You just need to register in our site <br> and add all games that you have <br>Don't waste more time!</p></div>
 				</div>
 			</div>
 		</div>
 	</section>
+	<!-- Hero section end -->
 	
-		<!-- Footer section -->
+	<!-- Footer section -->
 	<footer class="footer-section">
 		<div class="container">
-			<!-- <ul class="footer-menu">
-				<li><a href="index.html">Home</a></li>
+			<ul class="footer-menu">
+				<li><a href="index.jsp">Home</a></li>
 				<li><a href="review.jsp">Games</a></li>
-			</ul> -->
+			</ul>
 			<p class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -112,13 +105,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		</div>
 	</footer>
 	<!-- Footer section end -->
-	
+
+
 	<!--====== Javascripts & Jquery ======-->
 	<script src="Bootstrap/js/jquery-3.2.1.min.js"></script>
 	<script src="Bootstrap/js/bootstrap.min.js"></script>
 	<script src="Bootstrap/js/owl.carousel.min.js"></script>
 	<script src="Bootstrap/js/jquery.marquee.min.js"></script>
 	<script src="Bootstrap/js/main.js"></script>
-
-</body>
+    </body>
 </html>

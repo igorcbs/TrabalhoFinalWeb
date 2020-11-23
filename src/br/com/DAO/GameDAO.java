@@ -91,7 +91,7 @@ public class GameDAO {
 	///Atualizar
 	public void atualizarUser(GameBean game) {
 		
-		String sql = "UPDATE db.Jogos SET nome = ?, plataforma = ?,  multiplayer = ?, online = ?, estado = ?, imagem = ? WHERE idJogos = " + game.getId();
+		String sql = "UPDATE db.Jogos SET nome = ?, plataforma = ?,  multiplayer = ?, online = ?, estado = ? WHERE idJogos = " + game.getId();
 		
 		try {
 			ps = conn.prepareStatement(sql);

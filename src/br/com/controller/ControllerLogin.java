@@ -33,7 +33,7 @@ public class ControllerLogin extends HttpServlet {
 		boolean logou = false;
 		String email =  req.getParameter("email");
 		String password = req.getParameter("senha");
-		
+		UserBean userRecover = null;
 	
 		users = user.listarUser();
 		
@@ -41,7 +41,7 @@ public class ControllerLogin extends HttpServlet {
 		
 		if(users.isEmpty()) {
 			System.out.println("Não há registro! Cadastre-se");
-			req.getRequestDispatcher("/index.html").forward(req, resp);
+			req.getRequestDispatcher("/index.htm").forward(req, resp);
 		}else {
 			System.out.println("Não é nulo");
 			for(UserBean people: users) {
@@ -52,13 +52,15 @@ public class ControllerLogin extends HttpServlet {
 					session.setAttribute("senha", password);
 					session.setAttribute("nome", people.getNome());
 					session.setAttribute("id", people.getId());
-//					resp.sendRedirect("/index.html"); 
+					userRecover = new UserBean(people.getNome(),people.getEmail(),people.getSenha(),people.getId());
 				} 
 			}
 
 			if(logou) {
 				System.out.println("logou");
-				req.getRequestDispatcher("/index.html").forward(req, resp);
+				req.setAttribute("userId", userRecover.getId());
+				req.setAttribute("userNome", userRecover.getNome());
+				req.getRequestDispatcher("/index.jsp").forward(req, resp);
 				
 			}else {
 				System.out.println("Não logou");

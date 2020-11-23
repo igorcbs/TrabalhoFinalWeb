@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 <head>
 	<title>Game Collection</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="Game Warrior Template">
 	<meta name="keywords" content="warrior, game, creative, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Favicon -->   
-	<link href="Bootstrap/img/favicon.ico" rel="shortcut icon"/>
+	<!-- Favicon -->
+    <link href="Bootstrap/img/favicon.ico" rel="shortcut icon"/>
 
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" rel="stylesheet">
@@ -36,7 +36,7 @@
 	<header class="header-section">
 		<div class="container">
 			<!-- logo -->
-			<a class="site-logo" href="index.html">
+			<a class="site-logo" href="index.htm">
 				<img src="Bootstrap/img/logo.png" alt="">
 			</a>
 			<div class="user-panel">
@@ -47,86 +47,46 @@
 				<i class="fa fa-bars"></i>
 			</div>
 			<!-- site menu -->
-			<nav class="main-menu">
+			<!-- <nav class="main-menu">
 				<ul>
 					<li><a href="index.html">Home</a></li>
 					<li><a href="review.jsp">Games</a></li>
 				</ul>
-			</nav>
+			</nav> -->
 		</div>
 	</header>
 	<!-- Header section end -->
 
-	<!-- Page info section -->
-	<section class="page-info-section set-bg" data-setbg="Bootstrap/img/page-top-bg/5.jpg">
-		<div class="pi-content">
-			<div class="container">
-				<div class="row">
-					<div class="col-xl-5 col-lg-6 text-white">
-						<h2>Insert a game</h2>
-						<p>In that field you will be capable of add games into your list,change his state and other informations.</p>
+
+	<!-- Hero section -->
+	<section class="hero-section">
+		<div class="hero-slider owl-carousel">
+			<div class="hs-item set-bg" data-setbg="Bootstrap/img/slider-1.jpg">
+				<div class="hs-text">
+					<div class="container">
+						<h2>The Best <span>Games</span> Collection</h2>
+						<p>Best collection of games which you can store. <br> take the control of all yours games and list <br>Don't lose a game any more</p>
 					</div>
+				</div>
+			</div>
+			<div class="hs-item set-bg" data-setbg="Bootstrap/img/slider-2.jpg">
+				<div class="hs-text">
+					<div class="container">
+						<h2>Start Your <span>Collection</span> Right Now!</h2>
+						<p>You just need to register in our site <br> and add all games that you have <br>Don't waste more time!</p></div>
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- Page info section -->
-
-
-	<!-- Page section -->
-	<section class="page-section spad contact-page">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8">
-					<div class="contact-form-warp">
-						<h4 class="comment-title">Register your game</h4>
-						<form class="comment-form" action="" method="post">
-							<div class="row">
-								<div class="col-md-6">
-									<input type="text" placeholder="Name" id="nome">
-								</div>
-								<div class="col-md-6">
-									<input type="text" placeholder="Platform" id="plataforma">
-								</div>
-								<div class="col-md-6">
-									Number of players: <input type="number" min="1" max="8" placeholder="1" id="multiplayer"> <BR>
-								</div>
-								<div class="col-md-6">
-									<input type="checkbox" id="online" name="Online" value="Online"> Online <BR>
-								</div>
-								
-								<div class="col-md-6">
-									<BR> What is the state of the game? <BR>
-									<input type="radio" id="estado" name="emprestado" value="estado" /> Lent <BR>
-									<input type="radio" id="estado" name="nafila" value="estado" /> In queue <BR>
-									<input type="radio" id="estado" name="desejado" value="estado" /> Wanted <BR>
-									<input type="radio" id="estado" name="jogando" value="estado" /> Playing <BR>
-									<input type="radio" id="estado" name="zerado" value="estado" /> Zeroed <BR>
-								</div>
-								<div class="col-lg-12">
-									<BR> Select the game image: 
-									<input type="file" name="myimg" id="imagem"><BR>
-									<!-- <input type="text" placeholder="Subject"> 
-									<textarea placeholder="Message"></textarea>  -->
-									<BR> <button class="site-btn btn-sm">Save</button>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Page section end -->
-
+	<!-- Hero section end -->
 	
 	<!-- Footer section -->
 	<footer class="footer-section">
 		<div class="container">
-			<ul class="footer-menu">
+			<!-- <ul class="footer-menu">
 				<li><a href="index.html">Home</a></li>
 				<li><a href="review.jsp">Games</a></li>
-			</ul>
+			</ul> -->
 			<p class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -142,11 +102,5 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="Bootstrap/js/owl.carousel.min.js"></script>
 	<script src="Bootstrap/js/jquery.marquee.min.js"></script>
 	<script src="Bootstrap/js/main.js"></script>
-
-
-	<!-- load for map -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWTIlluowDL-X4HbYQt3aDw_oi2JP0Krc&sensor=false"></script>
-	<script src="Bootstrap/js/map.js"></script>
-
     </body>
 </html>

@@ -38,11 +38,14 @@
 	<header class="header-section">
 		<div class="container">
 			<!-- logo -->
-			<a class="site-logo" href="index.html">
+			<a class="site-logo" href="index.jsp">
 				<img src="Bootstrap/img/logo.png" alt="">
 			</a>
+
 			<div class="user-panel">
-				<a href="login.jsp">Login</a>  /  <a href="login.jsp">Register</a>
+				<form action="ControllerIndex" method="get">
+					<a > <%= request.getAttribute("userNome")%> </a>  /  <a href="index.htm">Exit</a>
+				</form>
 			</div>
 			<!-- responsive -->
 			<div class="nav-switch">
@@ -51,7 +54,7 @@
 			<!-- site menu -->
 			<nav class="main-menu">
 				<ul>
-					<li><a href="index.html">Home</a></li>
+					<li><a href="index.jsp">Home</a></li>
 					<li><a href="review.jsp">Games</a></li>
 				</ul>
 			</nav>
@@ -78,17 +81,47 @@
 
 	<!-- Page section -->
 	<section class="page-section review-page spad">
-		<script>
-			window.onload = function(){
-				//Pick the values
-				var daString = "<div class=" + "col-md-6" + "><div class=" + "review-item" + "onclick=" + "openPage('contactShow.jsp')" + "><div class=" + "review-cover set-bg" + "data-setbg=" + "Bootstrap/img/review/5.jpg" + "></div><div class=" + "review-text" + "><h4>Overwatch</h4><p>Multiplayer de 4 jogadores</p></div></div></div>";
-				document.getElementById('divPrincipal').innerHTML += daString;
-			}
-		</script>
-		<div class="container">
+
+		<div class="container" id="div">
 			<div class="row" id="divPrincipal">
+				<script>
+					window.onload = function(){
+						//Pick the values
+						/* var daString = "<div class=" + "col-md-6" + "><div class=" + "review-item" + "onclick=" + "openPage('contactShow.jsp')" + "><div class=" + "review-cover set-bg" + "data-setbg=" + "Bootstrap/img/review/5.jpg" + "></div><div class=" + "review-text" + "><h4>Overwatch</h4><p>Multiplayer de 4 jogadores</p></div></div></div>";
+						document.getElementById('divPrincipal').innerHTML += daString; */
+						var iDiv = document.createElement('div');
+		
+		                iDiv.id = 'review-text';
+		                iDiv.className = 'review-text';
+		
+		                var h4 = document.createElement('h4');
+		                h4.textContent = "Overwatch";
+		
+		                var p = document.createElement('p');
+		                p.textContent = "Multiplayer de 4 jogadores";
+		                
+		                iDiv.appendChild(h4);
+		                iDiv.appendChild(p);
+		              	
+		                var divItem = document.createElement('div');
+		                divItem.id = 'review-item';
+		                divItem.className = 'review-item';
+		                divItem.onClick = 'window.location.href='+'ControllerReview';
+		                
+		                divItem.appendChild(iDiv);
+		                
+		                
+		                var divCol = document.createElement('div');
+		                divCol.id = 'col-md-6';
+		                divCol.className = 'col-md-6';
+		                
+		                divCol.appendChild(divItem);
+
+		                document.getElementById("divPrincipal").appendChild(divCol);
+					}
+				</script>
 				<div class="col-md-6">
-					<div class="review-item" onclick="window.location.href='ControllerReview';">
+					<div class="review-item" onclick="window.location.href='ControllerEditGame';">
 						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/5.jpg"></div>
 						<div class="review-text">
 							<h4>Overwatch</h4>
@@ -97,7 +130,7 @@
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="review-item" onclick="window.location.href='ControllerReview';">
+					<div class="review-item" onclick="window.location.href='ControllerEditGame';">
 						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/6.jpg"></div>
 						<div class="review-text">
 							<h4>Grand Theft Auto</h4>
@@ -106,7 +139,7 @@
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="review-item" onclick="window.location.href='ControllerReview';">
+					<div class="review-item" onclick="window.location.href='ControllerEditGame';">
 						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/7.jpg"></div>
 						<div class="review-text">
 							<h4>Avatar</h4>
@@ -115,7 +148,7 @@
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="review-item" onclick="window.location.href='ControllerReview';">
+					<div class="review-item" onclick="window.location.href='ControllerEditGame';">
 						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/8.jpg"></div>
 						<div class="review-text">
 							<h4>Anthem</h4>
@@ -124,7 +157,7 @@
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="review-item" onclick="window.location.href='ControllerReview';">
+					<div class="review-item" onclick="window.location.href='ControllerEditGame';">
 						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/9.jpg"></div>
 						<div class="review-text">
 							<h4>Cyberpunk 2077</h4>
@@ -133,7 +166,7 @@
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="review-item" onclick="window.location.href='ControllerReview';">
+					<div class="review-item" onclick="window.location.href='ControllerEditGame';">
 						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/10.jpg"></div>
 						<div class="review-text">
 							<h4>Spiderman</h4>
@@ -143,7 +176,7 @@
 				</div>
 			</div>
 			<div class="user-panel">
-				<a href="contact.html">+</a>
+				<a href="contact.jsp">+</a>
 			</div>
 		</div>
 	</section>
@@ -153,7 +186,7 @@
 	<footer class="footer-section">
 		<div class="container">
 			<ul class="footer-menu">
-				<li><a href="index.html">Home</a></li>
+				<li><a href="index.jsp">Home</a></li>
 				<li><a href="review.jsp">Games</a></li>
 			</ul>
 			<p class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->

@@ -42,24 +42,22 @@ public class ControllerRegister extends HttpServlet {
 		if(users.isEmpty()) {
 			user.insereUser(nome, email, password);
 			
-			req.getRequestDispatcher("/index.html").forward(req, resp);
+			req.getRequestDispatcher("/index.htm").forward(req, resp);
 		}else {
-			System.out.println("Não é nulo");
 			for(UserBean people: users) {
-				System.out.println(people.getEmail());
-				System.out.println(people.getSenha());
 				if((email.contains(people.getEmail())) && (password.contains(people.getSenha()))) {
 					System.out.println("Usuário já registrado");
 					entrou = false;
+					
 				} 
 			}
 			
 			if(entrou) {
-				System.out.println("Usuário não registrado");
 				user.insereUser(nome, email, password);
-				req.getRequestDispatcher("/index.html").forward(req, resp);
+				
+				req.getRequestDispatcher("/index.htm").forward(req, resp);
 			}else {
-				resp.setContentType("/login.jsp");
+				req.getRequestDispatcher("/login.jsp").forward(req, resp);
 				out.print("Usuário já cadastrado! Realize o login ali em cima!");
 				out.close();
 			}

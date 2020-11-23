@@ -8,32 +8,32 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.Bean.GameBean;
-import br.com.Bean.GameState;
-import br.com.DAO.GameDAO;
+@WebServlet("/ControllerIndex")
+public class ControllerIndex extends HttpServlet{
 
-
-@WebServlet("/ControllerReview")
-public class ControllerReview extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
 		
 	}
-	
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		
 		req.setAttribute("userId", req.getAttribute("userId"));
 		req.setAttribute("userNome", req.getAttribute("userNome"));
 		
-		req.getRequestDispatcher("review.jsp").forward(req, resp);
+		req.getRequestDispatcher("/review.jsp").forward(req, resp);
+		
 		
 	}
+
+	
+	
+	
 	
 }
