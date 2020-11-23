@@ -39,11 +39,6 @@
 			<a class="site-logo" href="index.jsp">
 				<img src="Bootstrap/img/logo.png" alt="">
 			</a>
-			<div class="user-panel">
-				<form action="ControllerIndex" method="get" >
-					<a > <%= request.getAttribute("userNome") %> </a>  /  <a href="index.htm">Exit</a>
-				</form>
-			</div>
 			<!-- responsive -->
 			<div class="nav-switch">
 				<i class="fa fa-bars"></i>

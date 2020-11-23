@@ -1,5 +1,8 @@
 package br.com.controller;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -11,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.Bean.GameBean;
 import br.com.Bean.GameState;
+import br.com.Bean.Singleton;
 import br.com.DAO.GameDAO;
 
 @WebServlet("/ControllerSave")
@@ -40,11 +44,18 @@ public class ControllerSave extends HttpServlet {
 		int numJogadores = Integer.parseInt(req.getParameter("num")) ;
 		String estado = req.getParameter("estado");
 		String strOnline = req.getParameter("online");
+		String image =req.getParameter("myimg");
+		
+//		FileInputStream fis =null;
+//		
+//		File image = new File(myloc);
+//		fis = new FileInputStream(image);
+//		
+//		BufferedImage image = new Buffer
+		System.out.println(image);
+		
 		boolean eOnline = true;
 		boolean vazio = false;
-		
-		//Falta id do user
-		
 		
 		if(strOnline == null) {
 			eOnline = false;
@@ -60,9 +71,9 @@ public class ControllerSave extends HttpServlet {
 					for(GameState state: estados) {		
 						if(state.name().contains(estado)) {
 							if(vazio) {
-								gamedao.inserirUser(new GameBean(nome,plataforma,eOnline,numJogadores,state,0));
+								gamedao.inserirUser(new GameBean(nome,plataforma,eOnline,numJogadores,state,Singleton.shared.getUserId()));
 							}else {
-								gamedao.inserirUser(new GameBean(nome,plataforma,eOnline,numJogadores,state,0));
+								gamedao.inserirUser(new GameBean(nome,plataforma,eOnline,numJogadores,state,Singleton.shared.getUserId()));
 							}
 						}
 					}
@@ -70,10 +81,10 @@ public class ControllerSave extends HttpServlet {
 			}
 		}
 		
-//		gamedao.inserirUser(new GameBean("Cyberpunk 2077", "Playstation 5", false, 1, GameState.desejado,0));
-//		gamedao.inserirUser(new GameBean("Anthem", "Playstation 4", true, 1, GameState.desejado,0));
+		req.setAttribute("userId", Singleton.shared.getUserId());
+		req.setAttribute("userNome", Singleton.shared.getUserName());
+		req.getRequestDispatcher("/review.jsp").forward(req, resp);
 		
-//		System.out.println(gamedao.listarJogos());
 		
 	}
 	

@@ -40,7 +40,7 @@
 				<img src="Bootstrap/img/logo.png" alt="">
 			</a>
 			<div class="user-panel">
-				<form action="ControllerIndex" method="get">
+				<form class="comment-form" action="ControllerIndex" method="get">
 					<a > <%= request.getAttribute("userNome")%> </a>  /  <a href="index.htm">Exit</a>
 				</form>
 				
@@ -49,25 +49,11 @@
 			<div class="nav-switch">
 				<i class="fa fa-bars"></i>
 			</div>
-			<!-- site menu -->
-			<nav class="main-menu">
-				<!-- <form action="ControllerIndex" method="post"> -->
-					<ul>
-						<li><a href="index.jsp">Home</a>
-						
-						</li>
-					</ul>
-						
-				<!-- </form> -->
-				<form action="ControllerIndex" method="post">
-					<a href="window.location.href='ControllerIndex';" >Games</a>
-				</form>
-
-			</nav>
+			
 		</div>
 	</header>
 	<!-- Header section end -->
-
+	
 
 	<!-- Hero section -->
 	<section class="hero-section">
@@ -77,6 +63,9 @@
 					<div class="container">
 						<h2>The Best <span>Games</span> Collection</h2>
 						<p>Best collection of games which you can store. <br> take the control of all yours games and list <br>Don't lose a game any more</p>
+						<form class="comment-form" action="ControllerIndex" method="post">
+							<button class="site-btn">Game Collection</button>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -84,11 +73,17 @@
 				<div class="hs-text">
 					<div class="container">
 						<h2>Start Your <span>Collection</span> Right Now!</h2>
-						<p>You just need to register in our site <br> and add all games that you have <br>Don't waste more time!</p></div>
+						<p>You just need to register in our site <br> and add all games that you have <br>Don't waste more time!</p>
+						<form class="comment-form" action="ControllerIndex" method="post">
+							<button class="site-btn">Game Collection</button>
+						</form>
+					</div>	
 				</div>
 			</div>
+			
 		</div>
 	</section>
+	
 	<!-- Hero section end -->
 	
 	<!-- Footer section -->

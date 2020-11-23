@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.Bean.GameBean;
 import br.com.Bean.GameState;
+import br.com.Bean.Singleton;
 import br.com.DAO.GameDAO;
 
 
@@ -29,10 +30,9 @@ public class ControllerReview extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		req.setAttribute("userId", req.getAttribute("userId"));
-		req.setAttribute("userNome", req.getAttribute("userNome"));
-		
-		req.getRequestDispatcher("review.jsp").forward(req, resp);
+		req.setAttribute("userId", Singleton.shared.getUserId());
+		req.setAttribute("userNome", Singleton.shared.getUserName());
+		req.getRequestDispatcher("/review.jsp").forward(req, resp);
 		
 	}
 	

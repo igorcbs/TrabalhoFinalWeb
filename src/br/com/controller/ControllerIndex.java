@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.Bean.Singleton;
+
 @WebServlet("/ControllerIndex")
 public class ControllerIndex extends HttpServlet{
 
@@ -16,7 +18,7 @@ public class ControllerIndex extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -24,11 +26,11 @@ public class ControllerIndex extends HttpServlet{
 		// TODO Auto-generated method stub
 		
 		
-		req.setAttribute("userId", req.getAttribute("userId"));
-		req.setAttribute("userNome", req.getAttribute("userNome"));
+		req.setAttribute("userId", Singleton.shared.getUserId());
+		
+		req.setAttribute("userNome", Singleton.shared.getUserName());
 		
 		req.getRequestDispatcher("/review.jsp").forward(req, resp);
-		
 		
 	}
 

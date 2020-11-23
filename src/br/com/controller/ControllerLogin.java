@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import br.com.BO.UserBO;
+import br.com.Bean.Singleton;
 import br.com.Bean.UserBean;
 
 @WebServlet("/ControllerLogin")
@@ -53,11 +54,14 @@ public class ControllerLogin extends HttpServlet {
 					session.setAttribute("nome", people.getNome());
 					session.setAttribute("id", people.getId());
 					userRecover = new UserBean(people.getNome(),people.getEmail(),people.getSenha(),people.getId());
+					Singleton.shared.setUserId(userRecover.getId());
+					Singleton.shared.setUserName(userRecover.getNome());
 				} 
 			}
 
 			if(logou) {
-				System.out.println("logou");
+				System.out.println(userRecover.getId());
+				
 				req.setAttribute("userId", userRecover.getId());
 				req.setAttribute("userNome", userRecover.getNome());
 				req.getRequestDispatcher("/index.jsp").forward(req, resp);
