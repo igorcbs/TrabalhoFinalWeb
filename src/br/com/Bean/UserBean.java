@@ -92,6 +92,14 @@ public class UserBean {
 	public static void setSearchForId() {
 		UserBean.searchForId = true;
 	}
+
+	public ArrayList<GameBean> getJogos() {
+		return jogos;
+	}
+
+	public void setJogos(ArrayList<GameBean> jogos) {
+		this.jogos = jogos;
+	}
 	
 	
 	

@@ -84,42 +84,49 @@
 
 		<div class="container" id="div">
 			<div class="row" id="divPrincipal">
-				<script>
+				<form action="ControllerIndex" method="get">
+					<script>
 					window.onload = function(){
 						//Pick the values
 						/* var daString = "<div class=" + "col-md-6" + "><div class=" + "review-item" + "onclick=" + "openPage('contactShow.jsp')" + "><div class=" + "review-cover set-bg" + "data-setbg=" + "Bootstrap/img/review/5.jpg" + "></div><div class=" + "review-text" + "><h4>Overwatch</h4><p>Multiplayer de 4 jogadores</p></div></div></div>";
 						document.getElementById('divPrincipal').innerHTML += daString; */
-						var iDiv = document.createElement('div');
-		
-		                iDiv.id = 'review-text';
-		                iDiv.className = 'review-text';
-		
-		                var h4 = document.createElement('h4');
-		                h4.textContent = "Overwatch";
-		
-		                var p = document.createElement('p');
-		                p.textContent = "Multiplayer de 4 jogadores";
-		                
-		                iDiv.appendChild(h4);
-		                iDiv.appendChild(p);
-		              	
-		                var divItem = document.createElement('div');
-		                divItem.id = 'review-item';
-		                divItem.className = 'review-item';
-		                divItem.onClick = 'window.location.href='+'ControllerReview';
-		                
-		                divItem.appendChild(iDiv);
-		                
-		                
-		                var divCol = document.createElement('div');
-		                divCol.id = 'col-md-6';
-		                divCol.className = 'col-md-6';
-		                
-		                divCol.appendChild(divItem);
+						var gameQtt = request.getAttribute("qttJogos");
+						
+						for(int i=1; i<=gameQtt; i++){
+							var iDiv = document.createElement('div');
+							
+			                iDiv.id = 'review-text';
+			                iDiv.className = 'review-text';
+			
+			                var h4 = document.createElement('h4');
+			                h4.textContent = request.getAttribute("nomeJogo");
+			
+			                var p = document.createElement('p');
+			                p.textContent = request.getAttribute("multiplayerJogo")+" Jogadores";
+			                
+			                iDiv.appendChild(h4);
+			                iDiv.appendChild(p);
+			              	
+			                var divItem = document.createElement('div');
+			                divItem.id = 'review-item';
+			                divItem.className = 'review-item';
+			                divItem.onClick = 'window.location.href='+'ControllerReview';
+			                
+			                divItem.appendChild(iDiv);
+			                
+			                
+			                var divCol = document.createElement('div');
+			                divCol.id = 'col-md-6';
+			                divCol.className = 'col-md-6';
+			                
+			                divCol.appendChild(divItem);
 
-		                document.getElementById("divPrincipal").appendChild(divCol);
+			                document.getElementById("divPrincipal").appendChild(divCol);
+							
+						}
 					}
 				</script>
+				</form>
 				<div class="col-md-6">
 					<div class="review-item" onclick="window.location.href='ControllerEditGame';">
 						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/5.jpg"></div>
