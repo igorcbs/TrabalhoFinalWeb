@@ -110,13 +110,13 @@ public class GameDAO {
 	}
 	
 	//Excluir
-	public void excluirPessoa(int idUser) {
+	public void excluirJogo(int idJogo) {
 		
 		String sql = "DELETE FROM db.Jogos WHERE idJogos = ?";
 		
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, idUser);
+			ps.setInt(1, idJogo);
 			ps.execute();
 			ps.close();
 			System.out.println("EXCLUIUUU PORRAAA");

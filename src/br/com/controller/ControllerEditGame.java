@@ -23,13 +23,7 @@ public class ControllerEditGame extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		super.doGet(req, resp);
-		
-		
-		
-		req.getRequestDispatcher("contactShow.jsp").forward(req, resp);
-		
-		
-		
+		req.getRequestDispatcher("/contactShow.jsp").forward(req, resp);
 	}
 	
 	@Override
@@ -39,32 +33,42 @@ public class ControllerEditGame extends HttpServlet {
 		
 		GameDAO gamedao = new GameDAO();
 		GameState estados[] = GameState.values();
-		ArrayList<GameBean> games;
+		ArrayList<GameBean> games = gamedao.listarJogos();;
 		
 		String nome =  req.getParameter("nome");
 		String plataforma = req.getParameter("plataforma");
 		int numJogadores = Integer.parseInt(req.getParameter("num")) ;
 		String estado = req.getParameter("estado");
 		String strOnline = req.getParameter("online");
+		int idJogo = (int) req.getAttribute("idGame");
 		boolean eOnline = true;
-		boolean vazio = false;
-//		int id = Integer.parseInt(req.getParameter("idUser"));
 		//Falta id do user
 		
 		
 		if(strOnline == null) {
 			eOnline = false;
 		}
-		
-		games = gamedao.listarJogos();
-		
+
 		if((req.getParameter("edit") != null) == true ) {
-			
-			
+			for (GameBean gameBean : games) {
+				if(gameBean.getIdUser() == Singleton.shared.getUserId()) {
+					if(gameBean.getId() == idJogo) {
+						gameBean.setNome(nome);
+						gameBean.setPlataforma(plataforma);
+						gameBean.setMultiplayer(numJogadores);
+						gameBean.setOnline(eOnline);
+						gameBean.setState(GameState.valueOf(estado));
+						gamedao.atualizarUser(gameBean);
+						break;
+					}
+					
+				}
+			}
 			
 			
 		}else if(((req.getParameter("delete") != null) == true)) {
-			System.out.println("remoeeemrelkldk");
+			gamedao.excluirJogo(idJogo);
+			
 		}
 		
 		req.setAttribute("userId", Singleton.shared.getUserId());

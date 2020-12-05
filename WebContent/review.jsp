@@ -46,7 +46,7 @@
 				<form action="ControllerIndex" method="get">
 					<a > <%= request.getAttribute("userNome")%> </a>  /  <a href="index.htm">Exit</a>
 				</form>
-			</div>
+			</div> 
 			<!-- responsive -->
 			<div class="nav-switch">
 				<i class="fa fa-bars"></i>
@@ -84,25 +84,36 @@
 
 		<div class="container" id="div">
 			<div class="row" id="divPrincipal">
-				<form action="ControllerIndex" method="get">
+				<form action="ControllerReview" method="get">
 					<script>
-					window.onload = function(){
-						//Pick the values
-						/* var daString = "<div class=" + "col-md-6" + "><div class=" + "review-item" + "onclick=" + "openPage('contactShow.jsp')" + "><div class=" + "review-cover set-bg" + "data-setbg=" + "Bootstrap/img/review/5.jpg" + "></div><div class=" + "review-text" + "><h4>Overwatch</h4><p>Multiplayer de 4 jogadores</p></div></div></div>";
-						document.getElementById('divPrincipal').innerHTML += daString; */
-						var gameQtt = request.getAttribute("qttJogos");
-						
-						for(int i=1; i<=gameQtt; i++){
+					
+					/* $(".myBox").click(function() {
+						  window.location = $(this).find("a").attr("href"); 
+						  return false;
+						}); */
+					
+					window.onload = function () {
+						var gameQtt = '<%= request.getAttribute("qttJogos") %>';
+						var i = 1;
+						/* window.alert("adlkdwada" + gameQtt); */
+						for(i=1; i<=gameQtt; i++){
+							var f = i;
+							
+							
 							var iDiv = document.createElement('div');
 							
 			                iDiv.id = 'review-text';
 			                iDiv.className = 'review-text';
-			
+			                iDiv.onclick = 'window.location.href='+'ControllerReview';
+			                
+		
 			                var h4 = document.createElement('h4');
-			                h4.textContent = request.getAttribute("nomeJogo");
-			
+			                h4.textContent = '<%= request.getAttribute("nomeJogo" + request.getAttribute("qttJogos")) %>' ;
+							h4.onclick = 'window.location.href='+'ControllerReview';
+			                
 			                var p = document.createElement('p');
-			                p.textContent = request.getAttribute("multiplayerJogo")+" Jogadores";
+			                p.textContent = '<%= request.getAttribute("multiplayerJogo" + request.getAttribute("qttJogos")) %>' + " Jogadores";
+			                p.onclick = 'window.location.href='+'ControllerReview';
 			                
 			                iDiv.appendChild(h4);
 			                iDiv.appendChild(p);
@@ -110,7 +121,7 @@
 			                var divItem = document.createElement('div');
 			                divItem.id = 'review-item';
 			                divItem.className = 'review-item';
-			                divItem.onClick = 'window.location.href='+'ControllerReview';
+			                divItem.onclick = 'window.location.href='+'ControllerReview';
 			                
 			                divItem.appendChild(iDiv);
 			                
@@ -120,18 +131,46 @@
 			                divCol.className = 'col-md-6';
 			                
 			                divCol.appendChild(divItem);
-
-			                document.getElementById("divPrincipal").appendChild(divCol);
 							
+			                document.getElementById("divPrincipal").appendChild(divCol);
+			                
+			                
 						}
+
+						/* $('#iDiv').append('<a id="div" href="ControllerReview">link text</a>').on('click', 'a', function()
+		                		{
+		                		   
+		                		}); */
+						
+	
 					}
+					
+						//Pick the values
+						/* var daString = "<div class=" + "col-md-6" + "><div class=" + "review-item" + "onclick=" + "openPage('contactShow.jsp')" + "><div class=" + "review-cover set-bg" + "data-setbg=" + "Bootstrap/img/review/5.jpg" + "></div><div class=" + "review-text" + "><h4>Overwatch</h4><p>Multiplayer de 4 jogadores</p></div></div></div>";
+						document.getElementById('divPrincipal').innerHTML += daString; */
+
+					
+					
 				</script>
+				
 				</form>
+				
+				
+				
+				
+				
+				
+				<!-- <script >
+					window.addEventListener ? window.addEventListener("load",resize,false) : window.attachEvent && window.attachEvent("onload",resize);
+
+				</script> -->
 				<div class="col-md-6">
 					<div class="review-item" onclick="window.location.href='ControllerEditGame';">
 						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/5.jpg"></div>
 						<div class="review-text">
-							<h4>Overwatch</h4>
+							<h4>
+								<%= request.getAttribute("nomeJogo1") %>
+							</h4>
 							<p>Multiplayer de 4 jogadores</p>
 						</div>
 					</div>

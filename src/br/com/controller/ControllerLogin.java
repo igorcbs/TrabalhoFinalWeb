@@ -22,7 +22,9 @@ public class ControllerLogin extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		
+		
+		
 	}
 	
 	
@@ -49,13 +51,11 @@ public class ControllerLogin extends HttpServlet {
 				if((email.contains(people.getEmail())) && (password.contains(people.getSenha()))) {
 					System.out.println("Usuário já registrado");
 					logou = true;
-					session.setAttribute("email", email);
-					session.setAttribute("senha", password);
-					session.setAttribute("nome", people.getNome());
-					session.setAttribute("id", people.getId());
-					userRecover = new UserBean(people.getNome(),people.getEmail(),people.getSenha(),people.getId());
+					
+					userRecover = people;
 					Singleton.shared.setUserId(userRecover.getId());
 					Singleton.shared.setUserName(userRecover.getNome());
+					
 				} 
 			}
 
@@ -64,12 +64,18 @@ public class ControllerLogin extends HttpServlet {
 				
 				req.setAttribute("userId", userRecover.getId());
 				req.setAttribute("userNome", userRecover.getNome());
-				req.getRequestDispatcher("/index.jsp").forward(req, resp);
+//				req.getRequestDispatcher("/index.jsp").forward(req, resp);
 				
+				ControllerIndex controller = new ControllerIndex();
+				
+				controller.doGet(req, resp);
+			
 			}else {
 				System.out.println("Não logou");
 				req.getRequestDispatcher("/login.jsp").forward(req, resp);
 			}
+			
+			
 			
 		}
 		

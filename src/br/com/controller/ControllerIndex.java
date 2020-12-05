@@ -15,9 +15,13 @@ public class ControllerIndex extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 
+	
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		req.getRequestDispatcher("/index.jsp").forward(req, resp);
 
 	}
 
@@ -25,13 +29,16 @@ public class ControllerIndex extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		
 		req.setAttribute("userId", Singleton.shared.getUserId());
 		
 		req.setAttribute("userNome", Singleton.shared.getUserName());
 		
-		req.getRequestDispatcher("/review.jsp").forward(req, resp);
+//		req.getRequestDispatcher("/review.jsp").forward(req, resp);
 		
+		ControllerReview controller = new ControllerReview();
+		
+		controller.doGet(req, resp);
+	
 	}
 
 	
