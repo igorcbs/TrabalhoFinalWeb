@@ -96,6 +96,7 @@
 						var gameQtt = '<%= request.getAttribute("qttJogos") %>';
 						var i = 1;
 						/* window.alert("adlkdwada" + gameQtt); */
+						var arrayNomes = '<%= request.getParameterValues("nomeJogos") %>' ;
 						for(i=1; i<=gameQtt; i++){
 							var f = i;
 							
@@ -108,7 +109,8 @@
 			                
 		
 			                var h4 = document.createElement('h4');
-			                h4.textContent = '<%= request.getAttribute("nomeJogo" + request.getAttribute("qttJogos")) %>' ;
+			                //h4.textContent = '<%= request.getAttribute("nomeJogo" + request.getAttribute("qttJogos")) %>' ;
+			                h4.textContent = arrayNomes[i] ;
 							h4.onclick = 'window.location.href='+'ControllerReview';
 			                
 			                var p = document.createElement('p');

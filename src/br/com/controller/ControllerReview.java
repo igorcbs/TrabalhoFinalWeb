@@ -30,7 +30,7 @@ public class ControllerReview extends HttpServlet {
 		ArrayList<UserBean> users = new UserBO().listarUser();
 		ArrayList<GameBean> games = new GameBO().listarJogos();
 		
-		String[] array = new String[3];
+		String[] array;
 		
 		for (UserBean user : users) {
 			System.out.println("Entrou no for");
@@ -46,6 +46,7 @@ public class ControllerReview extends HttpServlet {
 				}else {
 					System.out.println("OPA NAO Ë NULO");
 					req.setAttribute("qttJogos", user.getJogos().size());
+					array = new String[user.getJogos().size()];
 					int i = 1;
 					for (GameBean gameBean : user.getJogos()) {
 						array[i] = gameBean.getNome();
@@ -54,10 +55,11 @@ public class ControllerReview extends HttpServlet {
 						req.setAttribute("multiplayerJogo"+i, gameBean.getMultiplayer());
 					}
 					
+					req.setAttribute("nomeJogos", array);
+					
 				}
 			}
 			
-			req.setAttribute("array", array);
 		}
 		
 		System.out.println(req.getAttribute("qttJogos"));
