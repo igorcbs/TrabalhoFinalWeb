@@ -75,7 +75,7 @@
 						<h2>Start Your <span>Collection</span> Right Now!</h2>
 						<p>You just need to register in our site <br> and add all games that you have <br>Don't waste more time!</p>
 						<form class="comment-form" action="ControllerIndex" method="post">
-							<button class="site-btn">Game Collection</button>
+							<button class="site-btn" >Game Collection</button>
 						</form>
 					</div>	
 				</div>

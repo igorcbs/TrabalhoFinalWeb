@@ -30,14 +30,15 @@ public class GameBean {
 		this.setIdUser(idUser);
 	}
 	
-//	public GameBean(String nome, String plataforma, boolean online, int multiplayer, GameState state, int idGame) {
-//		setMultiplayer(multiplayer);
-//		setNome(nome);
-//		setOnline(online);
-//		setPlataforma(plataforma);
-//		setState(state);
-//		this.id = id;
-//	}
+	public GameBean(String nome, String plataforma, boolean online, int multiplayer, GameState state, int idUser, int idGame) {
+		setMultiplayer(multiplayer);
+		setNome(nome);
+		setOnline(online);
+		setPlataforma(plataforma);
+		setState(state);
+		this.id = idGame;
+		setIdUser(idUser);
+	}
 	
 	//Methods
 	

@@ -75,7 +75,7 @@ public class GameDAO {
 				
 				GameState estadoAtual = GameState.valueOf(rs.getString("estado"));
 				System.out.println(estadoAtual);
-				GameBean user = new GameBean(rs.getString("nome"),rs.getString("plataforma"),on,rs.getInt("multiplayer"),estadoAtual,rs.getInt("idUser"));
+				GameBean user = new GameBean(rs.getString("nome"),rs.getString("plataforma"),on,rs.getInt("multiplayer"),estadoAtual,rs.getInt("idUser"),rs.getInt("idJogos"));
 				users.add(user);
 			}
  			

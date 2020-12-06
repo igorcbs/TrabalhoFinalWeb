@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="zxx">
 <head>
 	<title>Game Collection</title>
@@ -80,148 +81,50 @@
 
 
 	<!-- Page section -->
+
 	<section class="page-section review-page spad">
 
 		<div class="container" id="div">
 			<div class="row" id="divPrincipal">
-				<form action="ControllerReview" method="get">
-					<script>
-					
-					/* $(".myBox").click(function() {
-						  window.location = $(this).find("a").attr("href"); 
-						  return false;
-						}); */
-					
-					window.onload = function () {
-						var gameQtt = '<%= request.getAttribute("qttJogos") %>';
-						var i = 1;
-						/* window.alert("adlkdwada" + gameQtt); */
-						var arrayNomes = '<%= request.getParameterValues("nomeJogos") %>' ;
-						for(i=1; i<=gameQtt; i++){
-							var f = i;
-							
-							
-							var iDiv = document.createElement('div');
-							
-			                iDiv.id = 'review-text';
-			                iDiv.className = 'review-text';
-			                iDiv.onclick = 'window.location.href='+'ControllerReview';
-			                
-		
-			                var h4 = document.createElement('h4');
-			                //h4.textContent = '<%= request.getAttribute("nomeJogo" + request.getAttribute("qttJogos")) %>' ;
-			                h4.textContent = arrayNomes[i] ;
-							h4.onclick = 'window.location.href='+'ControllerReview';
-			                
-			                var p = document.createElement('p');
-			                p.textContent = '<%= request.getAttribute("multiplayerJogo" + request.getAttribute("qttJogos")) %>' + " Jogadores";
-			                p.onclick = 'window.location.href='+'ControllerReview';
-			                
-			                iDiv.appendChild(h4);
-			                iDiv.appendChild(p);
-			              	
-			                var divItem = document.createElement('div');
-			                divItem.id = 'review-item';
-			                divItem.className = 'review-item';
-			                divItem.onclick = 'window.location.href='+'ControllerReview';
-			                
-			                divItem.appendChild(iDiv);
-			                
-			                
-			                var divCol = document.createElement('div');
-			                divCol.id = 'col-md-6';
-			                divCol.className = 'col-md-6';
-			                
-			                divCol.appendChild(divItem);
-							
-			                document.getElementById("divPrincipal").appendChild(divCol);
-			                
-			                
-						}
+				
+				<% 
+				
+				int qttJogos = (int) request.getAttribute("qttJogos");
+				%>
+				<%for(int i = 0; i < qttJogos; i++) {%>
 
-						/* $('#iDiv').append('<a id="div" href="ControllerReview">link text</a>').on('click', 'a', function()
-		                		{
-		                		   
-		                		}); */
+					<div class="col-md-6">
+
+					<div class="review-item" >
 						
-	
-					}
 					
-						//Pick the values
-						/* var daString = "<div class=" + "col-md-6" + "><div class=" + "review-item" + "onclick=" + "openPage('contactShow.jsp')" + "><div class=" + "review-cover set-bg" + "data-setbg=" + "Bootstrap/img/review/5.jpg" + "></div><div class=" + "review-text" + "><h4>Overwatch</h4><p>Multiplayer de 4 jogadores</p></div></div></div>";
-						document.getElementById('divPrincipal').innerHTML += daString; */
-
-					
-					
-				</script>
-				
-				</form>
-				
-				
-				
-				
-				
-				
-				<!-- <script >
-					window.addEventListener ? window.addEventListener("load",resize,false) : window.attachEvent && window.attachEvent("onload",resize);
-
-				</script> -->
-				<div class="col-md-6">
-					<div class="review-item" onclick="window.location.href='ControllerEditGame';">
 						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/5.jpg"></div>
 						<div class="review-text">
-							<h4>
-								<%= request.getAttribute("nomeJogo1") %>
-							</h4>
-							<p>Multiplayer de 4 jogadores</p>
+						<%
+							String nome = (String) request.getAttribute("nomeJogo" + i);
+							int multiplayer = (int) request.getAttribute("multiplayerJogo" + i);
+							int id = (int) request.getAttribute("idGame"+i);
+						 
+						
+						%>
+			
+							<h4> <%= nome%> </h4>
+							
+							<p>Multiplayer de <%= multiplayer %> jogadores</p>
+							<form action="ControllerReview" method="post"> 
+								<input type="hidden" id="nomeJogo" name="nomeJogo" value="<%= nome%> " >
+								<input type="hidden" id="multiplayerJogo" value="<%= multiplayer%>" >
+								<input type="hidden" id="idGame" value=" <%= id %>">
+								<input type="submit" id="submit" value= "GO">
+							</form>
+							
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6">
-					<div class="review-item" onclick="window.location.href='ControllerEditGame';">
-						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/6.jpg"></div>
-						<div class="review-text">
-							<h4>Grand Theft Auto</h4>
-							<p>Multiplayer de 4 jogadores</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="review-item" onclick="window.location.href='ControllerEditGame';">
-						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/7.jpg"></div>
-						<div class="review-text">
-							<h4>Avatar</h4>
-							<p>Multiplayer de 4 jogadores</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="review-item" onclick="window.location.href='ControllerEditGame';">
-						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/8.jpg"></div>
-						<div class="review-text">
-							<h4>Anthem</h4>
-							<p>Multiplayer de 4 jogadores</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="review-item" onclick="window.location.href='ControllerEditGame';">
-						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/9.jpg"></div>
-						<div class="review-text">
-							<h4>Cyberpunk 2077</h4>
-							<p>Multiplayer de 4 jogadores</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="review-item" onclick="window.location.href='ControllerEditGame';">
-						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/10.jpg"></div>
-						<div class="review-text">
-							<h4>Spiderman</h4>
-							<p>Multiplayer de 4 jogadores</p>
-						</div>
-					</div>
-				</div>
+				
+				
+				<%} %>
+				
 			</div>
 			<div class="user-panel">
 				<a href="contact.jsp">+</a>

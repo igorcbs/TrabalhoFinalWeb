@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@page import="javax.swing.text.Document"%>
 <html lang="en">
 <head>
 	<title>Game Collection</title>
@@ -78,19 +79,19 @@
 				<div class="col-lg-8">
 					<div class="contact-form-warp">
 						<h4 class="comment-title">Edit your game</h4>
-						<form class="comment-form" action="ControllerEditGame" method="post">
+						<form class="comment-form" action="ControllerEditGame" method="get">
 							<div class="row">
 								<div class="col-md-6">
-									<input type="text" placeholder="Name" id="nome" name="nome" value="<%= request.getParameter("nomeGame")%>">
+									<input type="text" placeholder="Name" id="nome" name="nome"  value="<%= request.getParameter("nomeJogo")%>" >
 								</div>
 								<div class="col-md-6">
-									<input type="text" placeholder="Platform" id="plataforma" name="plataforma" value="<%= request.getParameter("plataformaGame")%>">
+									<input type="text" placeholder="Platform" id="plataforma" name="plataforma" value="Platform">
 								</div>
 								<div class="col-md-6">
-									Number of players: <input type="number" min="1" max="8" placeholder="1" id="multiplayer" name="num" value="<%= request.getParameter("numPlayers")%>"> <BR>
+									Number of players: <input type="number" min="1" max="8" placeholder="1" id="multiplayer" name="num" value="<%= request.getParameter("multiplayerJogo")%>"> <BR>
 								</div>
 								<div class="col-md-6">
-									<input type="checkbox" id="online" name="online" value="online" value="<%= request.getParameter("nomeGame")%>"> Online <BR>
+									<input type="checkbox" id="online" name="online" value="online" value="<%= request.getAttribute("online")%>"> Online <BR>
 								</div>
 								
 								<div class="col-md-6">
@@ -104,8 +105,8 @@
 								<div class="col-lg-12">
 									<!-- <input type="text" placeholder="Subject"> 
 									<textarea placeholder="Message"></textarea>  -->
-									<BR> <button class="site-btn btn-sm" name="edit">Edit</button>    
-									<button class="site-btn btn-sm" name="delete">Remove</button>
+									<BR> <button class="site-btn btn-sm" name="edit" id="edit">Edit</button>    
+									<button class="site-btn btn-sm" name="delete" id="delete">Remove</button>
 								</div>
 							
 								

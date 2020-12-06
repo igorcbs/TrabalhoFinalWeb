@@ -658,6 +658,13 @@ ol {
 	cursor: pointer;
 }
 
+.review-item {
+	
+	-onclick:"window.location.href='ControllerEditGame';" ;
+
+}
+
+
 .review-item .review-cover {
 	position: relative;
 	margin-bottom: 30px;

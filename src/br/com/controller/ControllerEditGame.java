@@ -23,7 +23,25 @@ public class ControllerEditGame extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		super.doGet(req, resp);
-		req.getRequestDispatcher("/contactShow.jsp").forward(req, resp);
+		
+		GameDAO gamedao = new GameDAO();
+		ArrayList<GameBean> games = gamedao.listarJogos();
+		String nomeJogo = (String) req.getAttribute("nomeJogo");
+		
+		for (GameBean gameBean : games) {
+			if(nomeJogo == gameBean.getNome()) {
+				for(Integer id: Singleton.shared.getGameIds()) {
+					if(id == gameBean.getId()) {
+						Singleton.shared.setGameId(id);
+					}
+				}
+			}
+		}
+		
+		System.out.println("adwadwda" + Singleton.shared.getGameId());
+	
+		
+		
 	}
 	
 	@Override
@@ -33,14 +51,14 @@ public class ControllerEditGame extends HttpServlet {
 		
 		GameDAO gamedao = new GameDAO();
 		GameState estados[] = GameState.values();
-		ArrayList<GameBean> games = gamedao.listarJogos();;
+		ArrayList<GameBean> games = gamedao.listarJogos();
 		
-		String nome =  req.getParameter("nome");
+		String nome =  req.getParameter("nomeJogo1");
 		String plataforma = req.getParameter("plataforma");
-		int numJogadores = Integer.parseInt(req.getParameter("num")) ;
+		int numJogadores = 3 ;
 		String estado = req.getParameter("estado");
 		String strOnline = req.getParameter("online");
-		int idJogo = (int) req.getAttribute("idGame");
+		int idJogo = Singleton.shared.getGameId();
 		boolean eOnline = true;
 		//Falta id do user
 		

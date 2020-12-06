@@ -30,39 +30,41 @@ public class ControllerReview extends HttpServlet {
 		ArrayList<UserBean> users = new UserBO().listarUser();
 		ArrayList<GameBean> games = new GameBO().listarJogos();
 		
-		String[] array;
+//		String[] array = new String[3];
 		
 		for (UserBean user : users) {
-			System.out.println("Entrou no for");
+			
 			if (user.getId() == Singleton.shared.getUserId()) {
-				System.out.println("OPA");				
+					
 				user.setJogos(new GameBO().addJogosEmUser(games));
-				System.out.println("BLZ");
-				System.out.println(user.getId());
-				System.out.println(Singleton.shared.getUserId());
+			
 				if (user.getJogos().isEmpty()) {
-					System.out.println("VIXI");
+				
 					req.setAttribute("qttJogos", 0);
 				}else {
-					System.out.println("OPA NAO Ë NULO");
+				
 					req.setAttribute("qttJogos", user.getJogos().size());
-					array = new String[user.getJogos().size()];
-					int i = 1;
+
+					int i = 0;
 					for (GameBean gameBean : user.getJogos()) {
-						array[i] = gameBean.getNome();
+//						array[i] = gameBean.getNome();
 						
 						req.setAttribute("nomeJogo"+i, gameBean.getNome());
 						req.setAttribute("multiplayerJogo"+i, gameBean.getMultiplayer());
+						
+						req.setAttribute("idGame"+i, gameBean.getId());
+						
+						Singleton.shared.setGameIds(gameBean.getId());
+						System.out.println("Id:" + gameBean.getId());
+						i++;
 					}
 					
-					req.setAttribute("nomeJogos", array);
-					
+//					req.setAttribute("nomeJogos", array);
 				}
 			}
 			
 		}
 		
-		System.out.println(req.getAttribute("qttJogos"));
 		req.getRequestDispatcher("/review.jsp").forward(req, resp);
 		
 	}
@@ -72,9 +74,21 @@ public class ControllerReview extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+//		int id = Integer.parseInt(req.getParameter("idGame")) ;
+		
+//		req.setAttribute("idGame", req.getParameter("idGame"));
+		String nome = req.getParameter("nomeJogo");
+		
+		req.setAttribute("nomeJogo", req.getParameter("nomeJogo"));
+		req.setAttribute("multiplayerJogo", req.getParameter("multiplayerJogo"));
 		req.setAttribute("userId", Singleton.shared.getUserId());
 		req.setAttribute("userNome", Singleton.shared.getUserName());
-		req.getRequestDispatcher("/review.jsp").forward(req, resp);
+		
+		ControllerEditGame controller = new ControllerEditGame();
+		
+		controller.doGet(req, resp);
+		
+		req.getRequestDispatcher("/contactShow.jsp").forward(req, resp);
 		
 	}
 	
