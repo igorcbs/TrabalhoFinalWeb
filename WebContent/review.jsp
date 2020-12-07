@@ -115,7 +115,7 @@
 								<input type="hidden" id="nomeJogo" name="nomeJogo" value="<%= nome%> " >
 								<input type="hidden" id="multiplayerJogo" value="<%= multiplayer%>" >
 								<input type="hidden" id="idGame" value=" <%= id %>">
-								<input type="submit" id="submit" value= "GO">
+								<input class="user-panel" type="submit" id="submit" value= "GO">
 							</form>
 							
 						</div>
