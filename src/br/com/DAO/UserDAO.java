@@ -37,7 +37,6 @@ public class UserDAO {
 			ps.execute();
 			ps.close();
 
-			System.out.println("INSERIUUUUUUUUU PORRAAA");
 		} catch (Exception e) {
 			throw new RuntimeException("Não conseguiu inserir Usuario", e);
 		}

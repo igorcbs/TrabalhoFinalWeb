@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import br.com.Bean.GameBean;
 import br.com.Bean.GameState;
 import br.com.Bean.Singleton;
-import br.com.Bean.UserBean;
+
 import br.com.DAO.GameDAO;
-import br.com.DAO.UserDAO;
+
 
 public class GameBO {
 

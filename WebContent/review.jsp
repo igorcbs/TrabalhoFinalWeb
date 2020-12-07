@@ -22,12 +22,6 @@
 	
 	<script type="text/javascript" src="Bootstrap/js/loadPage.js"></script>
 
-
-	<!--[if lt IE 9]>
-	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
-
 </head>
 <body>
 	<!-- Page Preloder -->
@@ -87,47 +81,46 @@
 		<div class="container" id="div">
 			<div class="row" id="divPrincipal">
 				
-				<% 
-				
-				int qttJogos = (int) request.getAttribute("qttJogos");
-				%>
+				<% int qttJogos = (int) request.getAttribute("qttJogos");
+
+				if(qttJogos > 0 ){ %>
+
 				<%for(int i = 0; i < qttJogos; i++) {%>
 
 					<div class="col-md-6">
+		
+						<div class="review-item">
 
-					<div class="review-item">
-						
-					
-						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/5.jpg"></div>
-						<div class="review-text">
-						<%
-							String nome = (String) request.getAttribute("nomeJogo" + i);
-							int multiplayer = (int) request.getAttribute("multiplayerJogo" + i);
-							int id = (int) request.getAttribute("idGame"+i);
-						 
-						
-						%>
-			
-							<h4> <%= nome%> </h4>
-							
-							<p>Multiplayer de <%= multiplayer %> jogadores</p>
-							<form action="ControllerReview" method="post"> 
-								<input type="hidden" id="nomeJogo" name="nomeJogo" value="<%= nome%> " >
-								<input type="hidden" id="multiplayerJogo" value="<%= multiplayer%>" >
-								<input type="hidden" id="idGame" value=" <%= id %>">
-								<input class="user-panel" type="submit" id="submit" value= "GO">
-							</form>
-							
+							<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/5.jpg"></div>
+							<div class="review-text">
+							<%
+								String nome = (String) request.getAttribute("nomeJogo" + i);
+								int multiplayer = (int) request.getAttribute("multiplayerJogo" + i);
+								int id = (int) request.getAttribute("idGame"+i);
+
+							%>
+				
+								<h4> <%= nome%> </h4>
+								
+								<p>Multiplayer de <%= multiplayer %> jogadores</p>
+								<form action="ControllerReview" method="post"> 
+									<input type="hidden" id="nomeJogo" name="nomeJogo" value="<%= nome%> " >
+									<input type="hidden" id="multiplayerJogo" value="<%= multiplayer%>" >
+									<input class="user-panel" type="submit" id="submit" value= "Edit/Remove">
+								</form>
+								
+							</div>
 						</div>
 					</div>
-				</div>
+					<%} %>
+				
+				<% } %>
 				
 				
-				<%} %>
 				
 			</div>
 			<div class="user-panel">
-				<a href="contact.jsp">+</a>
+				<a href="contact.jsp">Add</a>
 			</div>
 		</div>
 	</section>

@@ -12,11 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.BO.GameBO;
 import br.com.BO.UserBO;
 import br.com.Bean.GameBean;
-import br.com.Bean.GameState;
+
 import br.com.Bean.Singleton;
 import br.com.Bean.UserBean;
-import br.com.DAO.GameDAO;
-import br.com.DAO.UserDAO;
 
 
 @WebServlet("/ControllerReview")
@@ -30,7 +28,7 @@ public class ControllerReview extends HttpServlet {
 		ArrayList<UserBean> users = new UserBO().listarUser();
 		ArrayList<GameBean> games = new GameBO().listarJogos();
 		
-//		String[] array = new String[3];
+
 		
 		for (UserBean user : users) {
 			
@@ -47,7 +45,6 @@ public class ControllerReview extends HttpServlet {
 
 					int i = 0;
 					for (GameBean gameBean : user.getJogos()) {
-//						array[i] = gameBean.getNome();
 						
 						req.setAttribute("nomeJogo"+i, gameBean.getNome());
 						req.setAttribute("multiplayerJogo"+i, gameBean.getMultiplayer());

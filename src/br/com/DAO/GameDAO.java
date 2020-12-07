@@ -1,6 +1,6 @@
 package br.com.DAO;
 
-import java.awt.image.BufferedImage;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -48,7 +48,6 @@ public class GameDAO {
 			ps.setInt(8, game.getIdUser());
 			ps.execute();
 			ps.close();
-			System.out.println("INSERIUUUUUUUUU PORRAAA");
 		} catch (Exception e) {
 			throw new RuntimeException("Não conseguiu inserir o jogo", e);
 		}
@@ -69,9 +68,6 @@ public class GameDAO {
 					on = true;
 				}
 				
-				java.sql.Blob blob = rs.getBlob("imagem");
-				InputStream in = blob.getBinaryStream();
-				BufferedImage image = ImageIO.read(in);
 				
 				GameState estadoAtual = GameState.valueOf(rs.getString("estado"));
 				
@@ -119,7 +115,6 @@ public class GameDAO {
 			ps.setInt(1, idJogo);
 			ps.execute();
 			ps.close();
-			System.out.println("EXCLUIUUU PORRAAA");
 		} catch (Exception e) {
 			throw new RuntimeException("Não conseguiu excluir o jogo", e);
 		}

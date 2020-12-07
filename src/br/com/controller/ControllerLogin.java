@@ -1,7 +1,7 @@
 package br.com.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -9,7 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
 
 import br.com.BO.UserBO;
 import br.com.Bean.Singleton;
@@ -40,7 +40,6 @@ public class ControllerLogin extends HttpServlet {
 	
 		users = user.listarUser();
 		
-		HttpSession session = req.getSession(true);
 		
 		if(users.isEmpty()) {
 			System.out.println("Não há registro! Cadastre-se");
@@ -64,7 +63,6 @@ public class ControllerLogin extends HttpServlet {
 				
 				req.setAttribute("userId", userRecover.getId());
 				req.setAttribute("userNome", userRecover.getNome());
-//				req.getRequestDispatcher("/index.jsp").forward(req, resp);
 				
 				ControllerIndex controller = new ControllerIndex();
 				

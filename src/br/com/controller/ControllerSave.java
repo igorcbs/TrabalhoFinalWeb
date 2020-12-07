@@ -1,8 +1,5 @@
 package br.com.controller;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -44,6 +41,7 @@ public class ControllerSave extends HttpServlet {
 		int numJogadores = Integer.parseInt(req.getParameter("num")) ;
 		String estado = req.getParameter("estado");
 		String strOnline = req.getParameter("online");
+		int idOlder = 0;
 //		String image =req.getParameter("myimg");
 		
 //		FileInputStream fis =null;
@@ -68,7 +66,13 @@ public class ControllerSave extends HttpServlet {
 				if(games.get(games.size() - 1) == gameBean) {
 					for(GameState state: estados) {		
 						if(state.name().contains(estado)) {
-							gamedao.inserirUser(new GameBean(nome,plataforma,eOnline,numJogadores,state,Singleton.shared.getUserId(),games.size()));
+							idOlder = games.size();
+							if(idOlder == gameBean.getId()) {
+								gamedao.inserirUser(new GameBean(nome,plataforma,eOnline,numJogadores,state,Singleton.shared.getUserId(),games.size() + 1));
+							}else {
+								gamedao.inserirUser(new GameBean(nome,plataforma,eOnline,numJogadores,state,Singleton.shared.getUserId(),idOlder));
+							}
+							
 							
 						}
 					}

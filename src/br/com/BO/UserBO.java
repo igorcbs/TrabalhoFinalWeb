@@ -29,8 +29,6 @@ public class UserBO {
 		
 		return users = userDao.listarUser();
 
-//		System.out.println(users.toString());
-
 	}
 	
 	public void atualizarUser(String nome, String email, String senha) {
