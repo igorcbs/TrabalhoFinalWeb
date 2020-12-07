@@ -58,14 +58,13 @@ public class ControllerReview extends HttpServlet {
 						System.out.println("Id:" + gameBean.getId());
 						i++;
 					}
-					
-//					req.setAttribute("nomeJogos", array);
+
 				}
 			}
 			
 		}
 		
-		req.getRequestDispatcher("/review.jsp").forward(req, resp);
+//		req.getRequestDispatcher("/review.jsp").forward(req, resp);
 		
 	}
 	
@@ -74,12 +73,10 @@ public class ControllerReview extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-//		int id = Integer.parseInt(req.getParameter("idGame")) ;
-		
-//		req.setAttribute("idGame", req.getParameter("idGame"));
+
 		String nome = req.getParameter("nomeJogo");
 		
-		req.setAttribute("nomeJogo", req.getParameter("nomeJogo"));
+		req.setAttribute("nomeJogo", nome);
 		req.setAttribute("multiplayerJogo", req.getParameter("multiplayerJogo"));
 		req.setAttribute("userId", Singleton.shared.getUserId());
 		req.setAttribute("userNome", Singleton.shared.getUserName());

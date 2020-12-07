@@ -3,6 +3,7 @@ package br.com.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,7 +30,7 @@ public class ControllerEditGame extends HttpServlet {
 		String nomeJogo = (String) req.getAttribute("nomeJogo");
 		
 		for (GameBean gameBean : games) {
-			if(nomeJogo == gameBean.getNome()) {
+			if(nomeJogo.contains(gameBean.getNome())) {
 				for(Integer id: Singleton.shared.getGameIds()) {
 					if(id == gameBean.getId()) {
 						Singleton.shared.setGameId(id);
@@ -37,11 +38,8 @@ public class ControllerEditGame extends HttpServlet {
 				}
 			}
 		}
-		
-		System.out.println("adwadwda" + Singleton.shared.getGameId());
-	
-		
-		
+
+//		req.getRequestDispatcher("/contactShow.jsp").forward(req, resp);
 	}
 	
 	@Override
@@ -50,36 +48,34 @@ public class ControllerEditGame extends HttpServlet {
 		super.doPost(req, resp);
 		
 		GameDAO gamedao = new GameDAO();
-		GameState estados[] = GameState.values();
-		ArrayList<GameBean> games = gamedao.listarJogos();
-		
-		String nome =  req.getParameter("nomeJogo1");
-		String plataforma = req.getParameter("plataforma");
-		int numJogadores = 3 ;
-		String estado = req.getParameter("estado");
-		String strOnline = req.getParameter("online");
 		int idJogo = Singleton.shared.getGameId();
-		boolean eOnline = true;
-		//Falta id do user
-		
-		
-		if(strOnline == null) {
-			eOnline = false;
-		}
 
 		if((req.getParameter("edit") != null) == true ) {
+			
+			ArrayList<GameBean> games = gamedao.listarJogos();
+			
+			String nome =  req.getParameter("nomeJogo");
+			String plataforma = req.getParameter("plataforma");
+			int numJogadores = Integer.parseInt(req.getParameter("num"));
+			String estado = req.getParameter("estado");
+			String strOnline = req.getParameter("on");
+			
+			boolean eOnline = true;
+			
+			if(strOnline == null) {
+				eOnline = false;
+			}
+			
+			
 			for (GameBean gameBean : games) {
-				if(gameBean.getIdUser() == Singleton.shared.getUserId()) {
-					if(gameBean.getId() == idJogo) {
-						gameBean.setNome(nome);
-						gameBean.setPlataforma(plataforma);
-						gameBean.setMultiplayer(numJogadores);
-						gameBean.setOnline(eOnline);
-						gameBean.setState(GameState.valueOf(estado));
-						gamedao.atualizarUser(gameBean);
-						break;
-					}
-					
+				if(gameBean.getId() == Singleton.shared.getGameId()) {
+					gameBean.setNome(nome);
+					gameBean.setPlataforma(plataforma);
+					gameBean.setMultiplayer(numJogadores);
+					gameBean.setOnline(eOnline);
+					gameBean.setState(GameState.valueOf(estado));
+					gamedao.atualizarUser(gameBean);
+					break;
 				}
 			}
 			
@@ -89,9 +85,20 @@ public class ControllerEditGame extends HttpServlet {
 			
 		}
 		
+
 		req.setAttribute("userId", Singleton.shared.getUserId());
 		req.setAttribute("userNome", Singleton.shared.getUserName());
-		req.getRequestDispatcher("/review.jsp").forward(req, resp);
+		
+		ControllerReview controller = new ControllerReview();
+		controller.doGet(req, resp);
+		
+		if (!resp.isCommitted()){
+			   RequestDispatcher dispatcher = req.getRequestDispatcher("/review.jsp"); 
+			   dispatcher.forward(req, resp); 
+		}
+		
+//		req.getRequestDispatcher("/review.jsp").forward(req, resp);
+		
 	}
 	
 }

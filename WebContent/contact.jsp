@@ -95,10 +95,10 @@
 								<div class="col-md-6">
 									<BR> What is the state of the game? <BR>
 									<input type="radio" id="estado" name="estado" value="emprestado" /> Lent <BR>
-									<input type="radio" id="estado" name="estado" value="nafila" /> In queue <BR>
+									<input type="radio" id="estado" name="estado" value="naFila" /> In queue <BR>
 									<input type="radio" id="estado" name="estado" value="desejado" /> Wanted <BR>
 									<input type="radio" id="estado" name="estado" value="jogando" /> Playing <BR>
-									<input type="radio" id="estado" name="estado" value="zerado" /> Zeroed <BR>
+									<input type="radio" id="estado" name="estado" value="zerado" /> Conclued <BR>
 								</div>
 								<div class="col-lg-12">
 									<BR> Select the game image: 

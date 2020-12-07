@@ -33,11 +33,13 @@ public class ControllerIndex extends HttpServlet{
 		
 		req.setAttribute("userNome", Singleton.shared.getUserName());
 		
-//		req.getRequestDispatcher("/review.jsp").forward(req, resp);
+		
 		
 		ControllerReview controller = new ControllerReview();
 		
 		controller.doGet(req, resp);
+		
+		req.getRequestDispatcher("/review.jsp").forward(req, resp);
 	
 	}
 

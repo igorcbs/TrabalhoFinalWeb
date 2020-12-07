@@ -74,7 +74,7 @@ public class GameDAO {
 				BufferedImage image = ImageIO.read(in);
 				
 				GameState estadoAtual = GameState.valueOf(rs.getString("estado"));
-				System.out.println(estadoAtual);
+				
 				GameBean user = new GameBean(rs.getString("nome"),rs.getString("plataforma"),on,rs.getInt("multiplayer"),estadoAtual,rs.getInt("idUser"),rs.getInt("idJogos"));
 				users.add(user);
 			}
@@ -97,8 +97,8 @@ public class GameDAO {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, game.getNome());
 			ps.setString(2, game.getPlataforma());
-			ps.setInt(3, game.isOnline());
-			ps.setInt(4, game.getMultiplayer());
+			ps.setInt(3, game.getMultiplayer());
+			ps.setInt(4, game.isOnline());
 			ps.setString(5, game.getState());
 			ps.execute();
 			ps.close();

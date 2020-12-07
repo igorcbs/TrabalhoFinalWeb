@@ -79,28 +79,28 @@
 				<div class="col-lg-8">
 					<div class="contact-form-warp">
 						<h4 class="comment-title">Edit your game</h4>
-						<form class="comment-form" action="ControllerEditGame" method="get">
+						<form class="comment-form" action="ControllerEditGame" method="post">
 							<div class="row">
 								<div class="col-md-6">
-									<input type="text" placeholder="Name" id="nome" name="nome"  value="<%= request.getParameter("nomeJogo")%>" >
+									<input type="text" placeholder="Name" id="nomeJogo" name="nomeJogo"  value="<%= request.getParameter("nomeJogo")%>" >
 								</div>
 								<div class="col-md-6">
 									<input type="text" placeholder="Platform" id="plataforma" name="plataforma" value="Platform">
 								</div>
 								<div class="col-md-6">
-									Number of players: <input type="number" min="1" max="8" placeholder="1" id="multiplayer" name="num" value="<%= request.getParameter("multiplayerJogo")%>"> <BR>
+									Number of players: <input type="number" min="1" max="8" placeholder="1" id="multiplayer" name="num" > <BR>
 								</div>
 								<div class="col-md-6">
-									<input type="checkbox" id="online" name="online" value="online" value="<%= request.getAttribute("online")%>"> Online <BR>
+									<input type="checkbox" id="on" name="on" value="online"> Online <BR>
 								</div>
 								
 								<div class="col-md-6">
 									<BR> What is the state of the game? <BR>
-									<input type="radio" id="estado" name="emprestado" value="estado" /> Lent <BR>
-									<input type="radio" id="estado" name="nafila" value="estado" /> In queue <BR>
-									<input type="radio" id="estado" name="desejado" value="estado" /> Wanted <BR>
-									<input type="radio" id="estado" name="jogando" value="estado" /> Playing <BR>
-									<input type="radio" id="estado" name="zerado" value="estado" /> Zeroed <BR>
+									<input type="radio" id="estado" name="estado" value="emprestado" /> Lent <BR>
+									<input type="radio" id="estado" name="estado" value="naFila" /> In queue <BR>
+									<input type="radio" id="estado" name="estado" value="desejado" /> Wanted <BR>
+									<input type="radio" id="estado" name="estado" value="jogando" /> Playing <BR>
+									<input type="radio" id="estado" name="estado" value="zerado" /> Conclued <BR>
 								</div>
 								<div class="col-lg-12">
 									<!-- <input type="text" placeholder="Subject"> 

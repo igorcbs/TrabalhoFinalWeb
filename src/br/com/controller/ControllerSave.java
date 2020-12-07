@@ -44,7 +44,7 @@ public class ControllerSave extends HttpServlet {
 		int numJogadores = Integer.parseInt(req.getParameter("num")) ;
 		String estado = req.getParameter("estado");
 		String strOnline = req.getParameter("online");
-		String image =req.getParameter("myimg");
+//		String image =req.getParameter("myimg");
 		
 //		FileInputStream fis =null;
 //		
@@ -52,10 +52,8 @@ public class ControllerSave extends HttpServlet {
 //		fis = new FileInputStream(image);
 //		
 //		BufferedImage image = new Buffer
-		System.out.println(image);
 		
 		boolean eOnline = true;
-		boolean vazio = false;
 		
 		if(strOnline == null) {
 			eOnline = false;
@@ -64,17 +62,14 @@ public class ControllerSave extends HttpServlet {
 		games = gamedao.listarJogos();
 		
 		if(games.isEmpty()) {
-			vazio = true;
+			gamedao.inserirUser(new GameBean(nome,plataforma,eOnline,numJogadores,GameState.valueOf(estado),Singleton.shared.getUserId(),0));
 		}else {
 			for (GameBean gameBean : games) {
 				if(games.get(games.size() - 1) == gameBean) {
 					for(GameState state: estados) {		
 						if(state.name().contains(estado)) {
-							if(vazio) {
-								gamedao.inserirUser(new GameBean(nome,plataforma,eOnline,numJogadores,state,Singleton.shared.getUserId()));
-							}else {
-								gamedao.inserirUser(new GameBean(nome,plataforma,eOnline,numJogadores,state,Singleton.shared.getUserId()));
-							}
+							gamedao.inserirUser(new GameBean(nome,plataforma,eOnline,numJogadores,state,Singleton.shared.getUserId(),games.size()));
+							
 						}
 					}
 				}
@@ -83,6 +78,11 @@ public class ControllerSave extends HttpServlet {
 		
 		req.setAttribute("userId", Singleton.shared.getUserId());
 		req.setAttribute("userNome", Singleton.shared.getUserName());
+		
+		ControllerReview controller = new ControllerReview();
+		
+		controller.doGet(req, resp);
+		
 		req.getRequestDispatcher("/review.jsp").forward(req, resp);
 		
 		

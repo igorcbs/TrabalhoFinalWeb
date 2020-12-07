@@ -35,6 +35,7 @@ public class GameBean {
 		setNome(nome);
 		setOnline(online);
 		setPlataforma(plataforma);
+		setImage(new BufferedImage(80, 40, ColorSpace.TYPE_RGB));
 		setState(state);
 		this.id = idGame;
 		setIdUser(idUser);
@@ -81,7 +82,7 @@ public class GameBean {
 	}
 
 	public void setMultiplayer(int multiplayer) {
-		if(multiplayer > 0 && multiplayer < 5)
+		if(multiplayer > 0 && multiplayer < 9)
 			this.multiplayer = multiplayer;
 		else
 			throw new IllegalArgumentException();

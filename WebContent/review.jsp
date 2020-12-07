@@ -95,7 +95,7 @@
 
 					<div class="col-md-6">
 
-					<div class="review-item" >
+					<div class="review-item">
 						
 					
 						<div class="review-cover set-bg" data-setbg="Bootstrap/img/review/5.jpg"></div>
